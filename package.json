@@ -1,7 +1,7 @@
 {
-  "name": "wtf-webpack-starterkit",
+  "name": "WaterSelf",
   "version": "1.0.1",
-  "description": "WTF Webpack starterkit",
+  "description": "Monitor your daily watering",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
     "Webpack",
     "boilerplate"
   ],
-  "author": "Maciek Korsan",
+  "author": "Krzysztof Szewczyk",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.1",
