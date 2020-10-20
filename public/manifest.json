@@ -1,12 +1,12 @@
 {
-  "name": "WTF: PWA",
-  "short_name": "WTF: PWA",
-  "theme_color": "#2D2241",
-  "background_color": "#2D2241",
+  "name": "Water your body",
+  "short_name": "Waterself",
+  "theme_color": "HSL(102,50,50)",
+  "background_color": "#HSL(102,50,50)",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/wtf-webpack-starter/",
-  "start_url": "/wtf-webpack-starter/",
+  "scope": "/waterself/",
+  "start_url": "/waterself/",
   "icons": [
     {
       "src": "pwa/manifest-icon-192.png",
