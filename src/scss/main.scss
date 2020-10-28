@@ -4,7 +4,7 @@
 @import "modules/hello.scss";
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -25,6 +25,13 @@ body {
 .glass {
   display: block;
   position: relative;
+  margin-bottom: 48px;
+}
+
+.glass__addButton {
+  width: 216px;
+  height: 48px;
+  size: 18px;
 }
 
 .glass__count {
@@ -35,7 +42,6 @@ body {
   font-size: 112px;
   font-weight: 500;
   color: $countcolor;
-  padding-top: 68px;
-  // padding-bottom: 68px;
+  padding-top: 114px;
   text-align: center;
 }
