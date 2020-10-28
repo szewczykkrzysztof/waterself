@@ -1,8 +1,8 @@
 {
   "name": "Water your body",
   "short_name": "Waterself",
-  "theme_color": "#hsl(190,50%,50%)",
-  "background_color": "#hsl(190,50%,50%)",
+  "theme_color": "#hsl(190, 50%, 50%)",
+  "background_color": "#hsl(190, 50%, 50%)",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/waterself/",

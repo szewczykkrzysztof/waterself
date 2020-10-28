@@ -3,11 +3,39 @@
 @import "_variables";
 @import "modules/hello.scss";
 
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
-  background: $wtf;
-  color: #fff;
+  background: $background;
+  color: $titlecolor;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+.header {
+  font-size: 55px;
+  padding: 68px;
+}
+
+.glass {
+  display: block;
+  position: relative;
+}
+
+.glass__count {
+  box-sizing: border-box;
+  position: absolute;
+  height: 280px;
+  width: 280px;
+  font-size: 112px;
+  font-weight: 500;
+  color: $countcolor;
+  padding-top: 68px;
+  // padding-bottom: 68px;
+  text-align: center;
 }
