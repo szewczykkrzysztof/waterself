@@ -32,6 +32,7 @@ body {
   width: 216px;
   height: 48px;
   size: 18px;
+  margin-bottom: 48px;
 }
 
 .glass__count {
@@ -44,4 +45,8 @@ body {
   color: $countcolor;
   padding-top: 114px;
   text-align: center;
+}
+
+.glass__removeButton {
+
 }
