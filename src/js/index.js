@@ -18,6 +18,12 @@ const removeGlass = document.querySelector(".removeGlass-js");
 
 let storageCounter = localStorage.getItem("glassCounter");
 
+if (storageCounter) {
+  glassCounter.innerHTML = storageCounter;
+} else {
+  console.log("Licznik nie jest zapisany w localstorage");
+}
+
 addGlass.addEventListener("click", (e) => {
   e.preventDefault();
   storageCounter++;
