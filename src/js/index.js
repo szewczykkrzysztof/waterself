@@ -14,14 +14,19 @@ const glassCounter = document.querySelector(".glass__count-js");
 const addGlass = document.querySelector(".addGlass-js");
 const removeGlass = document.querySelector(".removeGlass-js");
 
+// Create today string
+const today = new Date().toISOString().slice(0, 10);
+console.log(`Dzisiaj jest ${today}`);
+
 // Loading storage glass counter
 
-let storageCounter = localStorage.getItem("glassCounter");
+let storageCounter = localStorage.getItem(`${today}`);
 
 if (storageCounter) {
   glassCounter.innerHTML = storageCounter;
 } else {
   console.log("Licznik nie jest zapisany w localstorage");
+  glassCounter.innerHTML = 0;
 }
 
 // Add +1 to glass counter on localstorage
