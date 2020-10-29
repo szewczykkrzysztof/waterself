@@ -24,12 +24,21 @@ if (storageCounter) {
   console.log("Licznik nie jest zapisany w localstorage");
 }
 
+// Add +1 to glass counter on localstorage
 addGlass.addEventListener("click", (e) => {
   e.preventDefault();
   storageCounter++;
   glassCounter.innerHTML = storageCounter;
   localStorage.setItem("glassCounter", storageCounter);
 });
+
+// Substract by 1 glass counter on local storage
+removeGlass.addEventListener("click", (e) => {
+    e.preventDefault();
+    storageCounter--;
+    glassCounter.innerHTML = storageCounter;
+    localStorage.setItem("glassCounter", storageCounter);
+})
 
 console.log(`Wypiłeś ${glassCounter.innerHTML} szklanek,`);
 console.log(`W pamieci jest zapisane ${storageCounter}`);
