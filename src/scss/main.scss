@@ -25,13 +25,13 @@ body {
 .glass {
   display: block;
   position: relative;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 @mixin buttonSize {
   width: 216px;
   height: 48px;
   size: 18px;
-  margin-bottom: 48px;
+  margin-top: 12px;
   display: block;
 }
 
