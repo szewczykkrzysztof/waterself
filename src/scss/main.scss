@@ -58,3 +58,11 @@ body {
   text-align: center;
 }
 
+.navigation {
+color: $titlecolor;
+}
+
+.navigation__link {
+  color: inherit;
+  font-style: normal;
+}
