@@ -16,7 +16,6 @@ const removeGlass = document.querySelector(".removeGlass-js");
 
 // Create today string
 const today = new Date().toISOString().slice(0, 10);
-console.log(`Dzisiaj jest ${today}`);
 
 // Loading storage glass counter
 
@@ -25,7 +24,6 @@ let storageCounter = localStorage.getItem(`${today}`);
 if (storageCounter) {
   glassCounter.innerHTML = storageCounter;
 } else {
-  console.log("Licznik nie jest zapisany w localstorage");
   glassCounter.innerHTML = 0;
 }
 
@@ -48,6 +46,3 @@ removeGlass.addEventListener("click", (e) => {
     e.preventDefault();
   }
 });
-
-console.log(`Wypiłeś ${glassCounter.innerHTML} szklanek,`);
-console.log(`W pamieci jest zapisane ${storageCounter}`);
