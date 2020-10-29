@@ -13,25 +13,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
 }
 
 .header {
   font-size: 55px;
-  padding: 68px;
+  padding: 32px;
 }
 
 .glass {
   display: block;
   position: relative;
-  margin-bottom: 36px;
+  margin-bottom: 12px;
 }
 @mixin buttonSize {
   width: 216px;
   height: 48px;
   size: 18px;
-  margin-top: 12px;
+  margin-top: 8px;
   display: block;
 }
 
