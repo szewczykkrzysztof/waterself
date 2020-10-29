@@ -34,7 +34,7 @@ addGlass.addEventListener("click", (e) => {
   e.preventDefault();
   storageCounter++;
   glassCounter.innerHTML = storageCounter;
-  localStorage.setItem("glassCounter", storageCounter);
+  localStorage.setItem(`${today}`, storageCounter);
 });
 
 // Substract by 1 glass counter on local storage
@@ -43,7 +43,7 @@ removeGlass.addEventListener("click", (e) => {
     e.preventDefault();
     storageCounter--;
     glassCounter.innerHTML = storageCounter;
-    localStorage.setItem("glassCounter", storageCounter);
+    localStorage.setItem(`${today}`, storageCounter);
   } else {
     e.preventDefault();
   }
