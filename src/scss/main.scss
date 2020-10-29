@@ -27,12 +27,24 @@ body {
   position: relative;
   margin-bottom: 48px;
 }
-
-.glass__addButton {
+@mixin buttonSize {
   width: 216px;
   height: 48px;
   size: 18px;
   margin-bottom: 48px;
+  display: block;
+}
+
+.glass {
+  &__addButton {
+    @include buttonSize();
+  }
+  &__removeButton {
+    @include buttonSize();
+    color: white;
+    background: $background;
+    border-width: 0;
+  }
 }
 
 .glass__count {
@@ -47,6 +59,3 @@ body {
   text-align: center;
 }
 
-.glass__removeButton {
-
-}
