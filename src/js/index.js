@@ -34,11 +34,15 @@ addGlass.addEventListener("click", (e) => {
 
 // Substract by 1 glass counter on local storage
 removeGlass.addEventListener("click", (e) => {
+  if (storageCounter > 0) {
     e.preventDefault();
     storageCounter--;
     glassCounter.innerHTML = storageCounter;
     localStorage.setItem("glassCounter", storageCounter);
-})
+  } else {
+    e.preventDefault();
+  }
+});
 
 console.log(`Wypiłeś ${glassCounter.innerHTML} szklanek,`);
 console.log(`W pamieci jest zapisane ${storageCounter}`);
