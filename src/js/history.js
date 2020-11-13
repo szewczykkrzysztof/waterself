@@ -34,11 +34,24 @@ const mounthName = Date(mounth).slice(4, 7);
 
 console.log(`Wyświetlam dane dla miesiąca: ${mounthName}`);
 
+// tworzę tabelę na wyniki
+const historyTable = [];
+
 for (let key in localStorage) {
   // wycianam pierwsze 7 znaków z klucza i przypisuję do zmiennej
   const keyMounth = key.slice(0, 7);
 
   if (keyMounth === mounth) {
     console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`);
+
+    // dodaj do tablicy z historią wpis
+    historyTable.push(`${key} : ${localStorage.getItem(key)}`);
   }
 }
+
+console.log(historyTable);
+
+// podpinam klasę zawierającą historię nawodnienia do zmiennej
+const results = document.querySelector(".waterHistory--js");
+
+results.innerHTML = historyTable;
