@@ -3,11 +3,8 @@ import "../scss/main.scss";
 // podpinam klasę zawierającą historię nawodnienia do zmiennej
 const results = document.querySelector(".waterHistory--js");
 
-// zapisuję dzisiejszą datę w formacie ISO wycinając ze stringa tylko rok dzień i miesiąc
-let todayISO = new Date().toISOString().slice(0, 10);
-
 // wycinam z aktualnej daty ISO 7 znaków i przypisuję do zmiennej aktualnego miesiąca
-let mounth = todayISO.slice(0, 7);
+let mounth = new Date().toISOString().slice(0, 7);
 
 for (let key in localStorage) {
   // wycianam pierwsze 7 znaków z klucza i przypisuję do zmiennej
