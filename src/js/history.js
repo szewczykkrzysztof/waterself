@@ -22,5 +22,23 @@ console.log(`Wczoraj był ${yesterday}`);
 console.log(`Wczoraj w ISO był: ${yesterday.toISOString()}`);
 const yesterdayShort = yesterday.toISOString().slice(0, 10);
 
-console.log(`Wczoraj wypiłeś szklanek: ${localStorage.getItem(yesterdayShort)}`);
+console.log(
+  `Wczoraj wypiłeś szklanek: ${localStorage.getItem(yesterdayShort)}`
+);
 
+// wycinam z aktualnej daty ISO 7 znaków i przypisuję do zmiennej aktualnego miesiąca
+let mounth = todayISO.slice(0, 7);
+
+// tworzę string z aktualnej daty i wycinam z niego skrót miesiąca
+const mounthName = Date(mounth).slice(4, 7);
+
+console.log(`Wyświetlam dane dla miesiąca: ${mounthName}`);
+
+for (let key in localStorage) {
+  // wycianam pierwsze 7 znaków z klucza i przypisuję do zmiennej
+  const keyMounth = key.slice(0, 7);
+
+  if (keyMounth === mounth) {
+    console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`);
+  }
+}
