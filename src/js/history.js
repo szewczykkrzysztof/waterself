@@ -50,11 +50,15 @@ for (let key in localStorage) {
     // dodaje nowy paragraf do sekcji results
     results.appendChild(newParagraph);
 
+    // dodaje atrybut do paragrafu
+    newParagraph.setAttribute("class", "waterHistory--record");
+
     // tworzę zawartość wpisu pobraną z zapisanego obiektu
-var newParagraphContent = document.createTextNode(`${key} : ${localStorage.getItem(key)}`);
+    var newParagraphContent = document.createTextNode(
+      `${key} : ${localStorage.getItem(key)}`
+    );
 
-// dodaję do utworzonego paragrafu utworzoną zawartość
-newParagraph.appendChild(newParagraphContent);
-
+    // dodaję do utworzonego paragrafu utworzoną zawartość
+    newParagraph.appendChild(newParagraphContent);
   }
 }

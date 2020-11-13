@@ -59,10 +59,14 @@ body {
 }
 
 .navigation {
-color: $titlecolor;
+  color: $titlecolor;
 }
 
 .navigation__link {
   color: inherit;
   font-style: normal;
+}
+
+.waterHistory--record:after {
+  content: "🥤";
 }
