@@ -21,6 +21,8 @@ const today = new Date().toISOString().slice(0, 10);
 
 let storageCounter = localStorage.getItem(`${today}`);
 
+console.log(`Dzisiaj jest ${today}`);
+
 if (storageCounter) {
   glassCounter.innerHTML = storageCounter;
 } else {
