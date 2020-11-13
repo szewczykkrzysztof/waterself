@@ -1,5 +1,8 @@
 import "../scss/main.scss";
 
+// podpinam klasę zawierającą historię nawodnienia do zmiennej
+const results = document.querySelector(".waterHistory--js");
+
 // zapisuję dzisiejszą datę w formacie ISO wycinając ze stringa tylko rok dzień i miesiąc
 let todayISO = new Date().toISOString().slice(0, 10);
 console.log(`Dzisiejsza data ISO to ${todayISO}`);
@@ -41,17 +44,23 @@ for (let key in localStorage) {
   // wycianam pierwsze 7 znaków z klucza i przypisuję do zmiennej
   const keyMounth = key.slice(0, 7);
 
+  //   dodaje zmienną tworzącą tworzącą nowy paragraf
+  var newParagraph = document.createElement("p");
+
   if (keyMounth === mounth) {
     console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`);
 
-    // dodaj do tablicy z historią wpis
-    historyTable.push(`${key} : ${localStorage.getItem(key)}`);
+    // dodaje nowy paragraf do sekcji results
+    results.appendChild(newParagraph);
+
+    // tworzę zawartość wpisu pobraną z zapisanego obiektu
+var newParagraphContent = document.createTextNode(`${key} : ${localStorage.getItem(key)}`);
+
+// dodaję do utworzonego paragrafu utworzoną zawartość
+newParagraph.appendChild(newParagraphContent);
+
+     historyTable.push(`${key} : ${localStorage.getItem(key)}`);
   }
 }
 
 console.log(historyTable);
-
-// podpinam klasę zawierającą historię nawodnienia do zmiennej
-const results = document.querySelector(".waterHistory--js");
-
-results.innerHTML = historyTable;
