@@ -1,7 +1,7 @@
 import "../scss/main.scss";
 
-// zapisuję dzisiejszą datę wycinając ze stringa tylko rok dzień i miesiąc
-const todayISO = new Date().toISOString().slice(0, 10);
+// zapisuję dzisiejszą datę w formacie ISO wycinając ze stringa tylko rok dzień i miesiąc
+let todayISO = new Date().toISOString().slice(0, 10);
 console.log(`Dzisiejsza data ISO to ${todayISO}`);
 
 // pobieram z localstorage wartość obiektu, którego kluczem jest dzisiejsza data
@@ -16,11 +16,11 @@ const today = new Date();
 // Odejmuję od dzisiejszej daty dobę wyrażoną w milisekundach i za pomocą funkcji Date uzyskuję datę wczorajszą
 const yesterday = new Date(today - 86400000);
 
-console.log(today);
+// Wczorajsza data
 console.log(`Wczoraj był ${yesterday}`);
+// Wczorajsza data w formacie ISO
+console.log(`Wczoraj w ISO był: ${yesterday.toISOString()}`);
+const yesterdayShort = yesterday.toISOString().slice(0, 10);
 
-console.log(localStorage);
+console.log(`Wczoraj wypiłeś szklanek: ${localStorage.getItem(yesterdayShort)}`);
 
-for (let key in localStorage) {
-    console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`)
-}
