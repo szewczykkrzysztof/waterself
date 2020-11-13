@@ -21,13 +21,6 @@ console.log(`Wczoraj był ${yesterday}`);
 
 console.log(localStorage);
 
-for (let i=0; i < localStorage.length; i++) {
-    const historicalData = localStorage.key(i);
-    const glassNumber = localStorage.getItem(localStorage.key(i));
-    console.log(`${historicalData} wypiłeś : ${glassNumber} szklanek`);
-    const drunkGlass = {
-        data : historicalData,
-        value : glassNumber,
-    }
-    console.log(drunkGlass);
-};
+for (let key in localStorage) {
+    console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`)
+}
