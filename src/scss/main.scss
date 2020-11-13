@@ -32,17 +32,18 @@ body {
   size: 18px;
   margin-top: 8px;
   display: block;
+  border-width: 0;
 }
 
 .glass {
   &__addButton {
     @include buttonSize();
+    border-radius: 8px;
   }
   &__removeButton {
     @include buttonSize();
     color: white;
     background: $background;
-    border-width: 0;
   }
 }
 
