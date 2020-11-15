@@ -19,12 +19,12 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Load drink history from localstorage
 
-let storageCounter = localStorage.getItem(`glassHistory`);
+let savingHistory = localStorage.getItem(`glassHistory`);
 
 console.log(`Dzisiaj jest ${today}`);
 
-if (storageCounter) {
-  // glassCounter.innerHTML = storageCounter;
+if (savingHistory) {
+    // glassCounter.innerHTML = storageCounter;
 } else {
   
   // create empty history table 
@@ -33,7 +33,6 @@ if (storageCounter) {
   // save table to local storage
   localStorage.setItem('glassHistory', historyDrinkTable);
   glassCounter.innerHTML = 0;
-  console.log(historyDrinkTable);
 }
 
 // Add +1 to glass counter on localstorage
@@ -55,3 +54,4 @@ if (storageCounter) {
 //     e.preventDefault();
 //   }
 // });
+
