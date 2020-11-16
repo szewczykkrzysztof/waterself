@@ -3,17 +3,17 @@ import "../scss/main.scss";
 // podpinam klasę zawierającą historię nawodnienia do zmiennej
 const results = document.querySelector(".waterHistory--js");
 
-// wycinam z aktualnej daty ISO 7 znaków i przypisuję do zmiennej aktualnego miesiąca
-let mounth = new Date().toISOString().slice(0, 7);
+// wycinam z aktualnej daty ISO 4 znaki (rok) i przypisuję do zmiennej
+let year = new Date().toISOString().slice(0, 4);
 
 for (let key in localStorage) {
-  // wycianam pierwsze 7 znaków z klucza i przypisuję do zmiennej
-  const keyMounth = key.slice(0, 7);
+  // wycianam pierwsze rok z pobranego klucza
+  const keyYear = key.slice(0, 4);
 
   //   dodaje zmienną tworzącą tworzącą nowy paragraf
   var newParagraph = document.createElement("p");
 
-  if (keyMounth === mounth) {
+  if (keyYear === year) {
     console.log(`${key} wypiłeś: ${localStorage.getItem(key)}`);
 
     // dodaje nowy paragraf do sekcji results
