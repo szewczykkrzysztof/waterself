@@ -7,6 +7,7 @@ const results = document.querySelector(".waterHistory--js");
 var drinkTable = JSON.parse(localStorage.getItem("glassHistory"));
 
 // tworzę pętlę, która będzie wykonywana dla 30 elementów z tablicy
+
 for (let i = 0; i <= 29; i++) {
   // generuję dzisiejszą datę
   let today = new Date();
@@ -17,19 +18,13 @@ for (let i = 0; i <= 29; i++) {
   // konweruję datę na format ISO i wycinam samą datę
   let todayISO = today.toISOString().slice(0, 10);
 
-  // szukam daty w tablicy i zwracam index elementu przy użyciu funkcji szczałkowej
+  // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
   var record = drinkTable.find(({ data }) => data === todayISO);
   console.log(record);
 
-  // sprawdzam czy rekord istnieje
-  if (record) {
-    // wyszukuję index znalezionego rekordu
-    var position = drinkTable.indexOf(record);
-    console.log(position);
-    // wysiagam datę rekordu(wpisu)
-    var entryDate = drinkTable[position].data;
-    // wyciągam z obiektu ilość zapisanych szklanek
-    var entryValue = drinkTable[position].glassCount;
+  // tworze funkcję dodającą nową linię w dokumencie html
+
+  function addParagraph(entryDate, entryValue) {
     //   dodaje zmienną tworzącą tworzącą nowy paragraf
     var newParagraph = document.createElement("p");
 
@@ -40,9 +35,25 @@ for (let i = 0; i <= 29; i++) {
     newParagraph.setAttribute("class", "waterHistory--record");
 
     // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
-    var newParagraphContent = document.createTextNode(`${entryDate} : ${entryValue}`);
-    
+    var newParagraphContent = document.createTextNode(
+      `${entryDate} : ${entryValue}`
+    );
+
     // dodaję do utworzonego paragrafu storzony tekst
     newParagraph.appendChild(newParagraphContent);
+  }
+
+  // sprawdzam czy rekord istnieje
+  if (record) {
+    // wyszukuję index znalezionego rekordu
+    var position = drinkTable.indexOf(record);
+    console.log(position);
+    // wysiagam datę rekordu(wpisu)
+    var recordDate = drinkTable[position].data;
+    // wyciągam z obiektu ilość zapisanych szklanek
+    var recordValue = drinkTable[position].glassCount;
+
+    // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
+    addParagraph(recordDate, recordValue);
   }
 }
