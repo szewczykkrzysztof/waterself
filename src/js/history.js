@@ -55,5 +55,8 @@ for (let i = 0; i <= 29; i++) {
 
     // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
     addParagraph(recordDate, recordValue);
+  } else {
+    // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
+    addParagraph(todayISO, "0");
   }
 }
