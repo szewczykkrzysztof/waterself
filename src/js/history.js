@@ -52,7 +52,10 @@ for (let i = 0; i <= 29; i++) {
     var recordDate = drinkTable[position].data;
     // wyciągam z obiektu ilość zapisanych szklanek
     var recordValue = drinkTable[position].glassCount;
-
+    // przeliczam szklanki na litry
+    recordValue = recordValue * 0.25;
+    // dodaję symbol litra
+    recordValue = recordValue + "  l";
     // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
     addParagraph(recordDate, recordValue);
   } else {
