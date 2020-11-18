@@ -3,8 +3,12 @@ import "../scss/main.scss";
 // ładuję tablicę z historią z local storage poprzez odkodowanie JSON
 var drinkTable = JSON.parse(localStorage.getItem("glassHistory"));
 
+// pobieram długość wczytanej tablicy
 var historyLength = drinkTable.length;
-console.log(historyLength)
+console.log(`Zapisanych zostało ${historyLength} wpisów w historii`);
+
+//   tworze połacznie z klasą wykresu
+var chartBody = document.querySelector(".chart__body");
 
 // tworzę pętlę, która będzie wykonywana dla 30 elementów z tablicy
 
@@ -22,25 +26,21 @@ for (let i = 0; i <= 29; i++) {
   var record = drinkTable.find(({ data }) => data === todayISO);
   console.log(record);
 
-  // funkcja tworzącą blok wielkości 
+    // funkcja tworzącą blok wielkości
 
   function addBox(entryDate, entryValue) {
     //   dodaje zmienną tworzącą tworzącą nowy paragraf
-//     var newParagraph = document.createElement("p");
-
-//     // dodaje nowy paragraf do sekcji results (tworzę jego dziecko)
-//     results.appendChild(newParagraph);
-
-//     // dodaje atrybut do paragrafu
-//     newParagraph.setAttribute("class", "waterHistory--record");
-
-//     // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
-//     var newParagraphContent = document.createTextNode(
-//       `${entryDate} : ${entryValue}`
-//     );
-
-//     // dodaję do utworzonego paragrafu storzony tekst
-//     newParagraph.appendChild(newParagraphContent);
+    //     var newParagraph = document.createElement("p");
+    //     // dodaje nowy paragraf do sekcji results (tworzę jego dziecko)
+    //     results.appendChild(newParagraph);
+    //     // dodaje atrybut do paragrafu
+    //     newParagraph.setAttribute("class", "waterHistory--record");
+    //     // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
+    //     var newParagraphContent = document.createTextNode(
+    //       `${entryDate} : ${entryValue}`
+    //     );
+    //     // dodaję do utworzonego paragrafu storzony tekst
+    //     newParagraph.appendChild(newParagraphContent);
   }
 
   // sprawdzam czy rekord istnieje
@@ -54,9 +54,9 @@ for (let i = 0; i <= 29; i++) {
     var recordValue = drinkTable[position].glassCount;
 
     // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
-   //  addBox(recordDate, recordValue);
+    //  addBox(recordDate, recordValue);
   } else {
     // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
-   //  addBox(todayISO, 0);
+    //  addBox(todayISO, 0);
   }
 }
