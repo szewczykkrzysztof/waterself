@@ -35,6 +35,7 @@ body {
 .chart__oneDay {
   background-color: orange;
   min-width: 10px;
+  width: var(--chartBarWidth);
   min-height: 5px;
   height: var(--barHeight);
 }
