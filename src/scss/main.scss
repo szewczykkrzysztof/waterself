@@ -23,10 +23,10 @@ body {
 
 .chart__body {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
   background: orchid;
-  min-width: 400px;
+  min-width: 500px;
   height: 200px;
   border-width: 10px;
   border-color: powderblue;
