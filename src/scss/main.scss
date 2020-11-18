@@ -22,11 +22,11 @@ body {
 }
 
 .chart_body {
-  display: grid;
   height: 300px;
 }
 
 .chart__oneDay {
+  display: inline-block;
   background-color: orange;
   min-width: 10px;
   min-height: 5px;
