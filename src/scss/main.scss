@@ -21,6 +21,17 @@ body {
   padding: 10px;
 }
 
+.chart_body {
+  display: grid;
+  height: 300px;
+}
+
+.chart__oneDay {
+  background-color: orange;
+  min-width: 10px;
+  min-height: 5px;
+}
+
 .header {
   font-size: 55px;
   padding: 32px;
