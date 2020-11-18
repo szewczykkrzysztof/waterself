@@ -33,8 +33,10 @@ for (let i = 0; i <= 29; i++) {
     chartBody.appendChild(newBox);
     // dodaje atrybut klasy do stworzonego słupka
     newBox.setAttribute("class", "chart__oneDay");
+   //  ustalam wyskość słupka wykresu
+   var barHeight = entryValue * 10;
         //   dodaje wysokosc słupka do zmiennej css
-    newBox.style.setProperty("--barHeight", `${entryValue}px`);
+    newBox.style.setProperty("--barHeight", `${barHeight}px`);
   }
 
   // sprawdzam czy rekord istnieje
