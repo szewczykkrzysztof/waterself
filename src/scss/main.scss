@@ -25,7 +25,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background: orchid;
   min-width: 500px;
   height: 200px;
   border-width: 10px;
@@ -33,10 +32,11 @@ body {
 }
 
 .chart__oneDay {
-  background-color: orange;
+  background: $titlecolor;
+  opacity: 50%;
   min-width: 10px;
   width: var(--chartBarWidth);
-  min-height: 5px;
+  min-height: 2px;
   height: var(--barHeight);
 }
 
