@@ -1,18 +1,62 @@
 import "../scss/main.scss";
 
-// tworze zmienna z aktulną datą i czasem
-var today = new Date();
+// ładuję tablicę z historią z local storage poprzez odkodowanie JSON
+var drinkTable = JSON.parse(localStorage.getItem("glassHistory"));
 
-// pętla wykona się i+1 razy
-for (let i = 10; i > -1; i--) {
+var historyLength = drinkTable.length;
+console.log(historyLength)
 
-//    odejmuję od aktualnego czasu i * doba wyrażona w milisekundach
-   var numberTimeValue = (today -(i*86400000));
+// tworzę pętlę, która będzie wykonywana dla 30 elementów z tablicy
 
-   //    przypisuję do zmiennej nową datę utworzoną z milisekund
-   var historicTime = new Date(numberTimeValue);
+for (let i = 0; i <= 29; i++) {
+  // generuję dzisiejszą datę
+  let today = new Date();
 
-   //    przekształcam datę na format iso i wycinam tylko datę
-   var isoDay = historicTime.toISOString().slice(0, 10);
-   console.log(isoDay);
+  // ustawiam datę z historii
+  today.setDate(today.getDate() - i);
+
+  // konweruję datę na format ISO i wycinam samą datę
+  let todayISO = today.toISOString().slice(0, 10);
+
+  // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
+  var record = drinkTable.find(({ data }) => data === todayISO);
+  console.log(record);
+
+  // funkcja tworzącą blok wielkości 
+
+  function addBox(entryDate, entryValue) {
+    //   dodaje zmienną tworzącą tworzącą nowy paragraf
+//     var newParagraph = document.createElement("p");
+
+//     // dodaje nowy paragraf do sekcji results (tworzę jego dziecko)
+//     results.appendChild(newParagraph);
+
+//     // dodaje atrybut do paragrafu
+//     newParagraph.setAttribute("class", "waterHistory--record");
+
+//     // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
+//     var newParagraphContent = document.createTextNode(
+//       `${entryDate} : ${entryValue}`
+//     );
+
+//     // dodaję do utworzonego paragrafu storzony tekst
+//     newParagraph.appendChild(newParagraphContent);
+  }
+
+  // sprawdzam czy rekord istnieje
+  if (record) {
+    // wyszukuję index znalezionego rekordu
+    var position = drinkTable.indexOf(record);
+    console.log(position);
+    // wysiagam datę rekordu(wpisu)
+    var recordDate = drinkTable[position].data;
+    // wyciągam z obiektu ilość zapisanych szklanek
+    var recordValue = drinkTable[position].glassCount;
+
+    // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
+   //  addBox(recordDate, recordValue);
+  } else {
+    // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
+   //  addBox(todayISO, 0);
+  }
 }
