@@ -11,7 +11,6 @@ console.log(`Zapisanych zostało ${historyLength} wpisów w historii`);
 var chartBody = document.querySelector(".chart__body");
 
 // tworzę pętlę, która będzie wykonywana dla 30 elementów z tablicy
-
 for (let i = 0; i <= 29; i++) {
   // generuję dzisiejszą datę
   let today = new Date();
@@ -26,21 +25,16 @@ for (let i = 0; i <= 29; i++) {
   var record = drinkTable.find(({ data }) => data === todayISO);
   console.log(record);
 
-    // funkcja tworzącą blok wielkości
-
-  function addBox(entryDate, entryValue) {
-    //   dodaje zmienną tworzącą tworzącą nowy paragraf
-    //     var newParagraph = document.createElement("p");
-    //     // dodaje nowy paragraf do sekcji results (tworzę jego dziecko)
-    //     results.appendChild(newParagraph);
-    //     // dodaje atrybut do paragrafu
-    //     newParagraph.setAttribute("class", "waterHistory--record");
-    //     // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
-    //     var newParagraphContent = document.createTextNode(
-    //       `${entryDate} : ${entryValue}`
-    //     );
-    //     // dodaję do utworzonego paragrafu storzony tekst
-    //     newParagraph.appendChild(newParagraphContent);
+  // funkcja tworząca nowy blok
+  function addGraphBar(entryValue) {
+    //   przypinam do zmiennej stworzenie nowego słupka wykresu
+    var newBox = document.createElement("div");
+    // dodaje nowy słupek do wykresu (tworzę dziecko wykresu)
+    chartBody.appendChild(newBox);
+    // dodaje atrybut klasy do stworzonego słupka
+    newBox.setAttribute("class", "chart__oneDay");
+        //   dodaje wysokosc słupka do zmiennej css
+    newBox.style.setProperty("--barHeight", `${entryValue}px`);
   }
 
   // sprawdzam czy rekord istnieje
@@ -53,8 +47,8 @@ for (let i = 0; i <= 29; i++) {
     // wyciągam z obiektu ilość zapisanych szklanek
     var recordValue = drinkTable[position].glassCount;
 
-    // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
-    //  addBox(recordDate, recordValue);
+    //   wywołuję funkcję dodającą nowy słupek wykresu
+    addGraphBar(recordValue);
   } else {
     // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
     //  addBox(todayISO, 0);

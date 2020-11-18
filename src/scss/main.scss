@@ -30,6 +30,7 @@ body {
   background-color: orange;
   min-width: 10px;
   min-height: 5px;
+  height: var(--barHeight);
 }
 
 .header {
