@@ -26,7 +26,7 @@ for (let i = 0; i <= 29; i++) {
   console.log(record);
 
   // funkcja tworząca nowy blok
-  function addGraphBar(entryValue) {
+  function addGraphBar(entryData,entryValue) {
     //   przypinam do zmiennej stworzenie nowego słupka wykresu
     var newBox = document.createElement("div");
     // dodaje nowy słupek do wykresu (tworzę dziecko wykresu)
@@ -50,9 +50,9 @@ for (let i = 0; i <= 29; i++) {
     var recordValue = drinkTable[position].glassCount;
 
     //   wywołuję funkcję dodającą nowy słupek wykresu
-    addGraphBar(recordValue);
+    addGraphBar(recordDate,recordValue);
   } else {
     // wywołanie funkcji dodającej słupek dla braku wpisu
-    addGraphBar(0);
+    addGraphBar(recordDate,0);
   }
 }
