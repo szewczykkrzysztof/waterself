@@ -28,8 +28,10 @@ body {
   min-width: 500px;
   height: 200px;
   border-width: 10px;
-  border-color: powderblue;
-}
+  border: 1px solid hsl(216, 52%, 55%);
+  border-radius: 8px;
+  padding: 4px;
+  }
 
 .chart__oneDay {
   background: $titlecolor;
