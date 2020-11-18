@@ -33,9 +33,9 @@ for (let i = 0; i <= 29; i++) {
     chartBody.appendChild(newBox);
     // dodaje atrybut klasy do stworzonego słupka
     newBox.setAttribute("class", "chart__oneDay");
-   //  ustalam wyskość słupka wykresu
-   var barHeight = entryValue * 10;
-        //   dodaje wysokosc słupka do zmiennej css
+    //  ustalam wyskość słupka wykresu
+    var barHeight = entryValue * 10;
+    //   dodaje wysokosc słupka do zmiennej css
     newBox.style.setProperty("--barHeight", `${barHeight}%`);
   }
 
@@ -52,7 +52,7 @@ for (let i = 0; i <= 29; i++) {
     //   wywołuję funkcję dodającą nowy słupek wykresu
     addGraphBar(recordValue);
   } else {
-    // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
-    //  addBox(todayISO, 0);
+    // wywołanie funkcji dodającej słupek dla braku wpisu
+    addGraphBar(0);
   }
 }
