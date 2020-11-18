@@ -36,7 +36,7 @@ for (let i = 0; i <= 29; i++) {
    //  ustalam wyskość słupka wykresu
    var barHeight = entryValue * 10;
         //   dodaje wysokosc słupka do zmiennej css
-    newBox.style.setProperty("--barHeight", `${barHeight}px`);
+    newBox.style.setProperty("--barHeight", `${barHeight}%`);
   }
 
   // sprawdzam czy rekord istnieje

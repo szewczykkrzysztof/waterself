@@ -21,12 +21,18 @@ body {
   padding: 10px;
 }
 
-.chart_body {
-  height: 300px;
+.chart__body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: orchid;
+  min-width: 400px;
+  height: 200px;
+  border-width: 10px;
+  border-color: powderblue;
 }
 
 .chart__oneDay {
-  display: inline-block;
   background-color: orange;
   min-width: 10px;
   min-height: 5px;
