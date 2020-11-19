@@ -21,6 +21,16 @@ chartWeekButton.addEventListener("click", (e) => generateChart("week"));
 chartMonthButton.addEventListener("click", (e) => generateChart("month"));
 
 function generateChart(chartType) {
+  // wybranie istniejących słupków
+  var oldChartBar = document.getElementsByClassName("chart__oneDay");
+  // odpalam petle dla każdego elementu z tablicy wybranych elementów
+  for (var i = oldChartBar.length - 1; i >= 0; i--) {
+    // przypisuję do zmiennej pojedyńczy element z tablicy
+    var barToRemove = oldChartBar[i];
+    // element do usunięcia.węzeł rodzica.usuń_dziecko
+    barToRemove.parentNode.removeChild(barToRemove);
+  }
+
   switch (chartType) {
     case "week":
       console.log(`Wybrałeś ${chartType}`);
