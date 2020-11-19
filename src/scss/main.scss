@@ -31,7 +31,15 @@ body {
   border: 1px solid hsl(216, 52%, 55%);
   border-radius: 8px;
   padding: 4px;
-  }
+}
+
+.chart__nav {
+  padding: 4px 16px;
+  margin: 16px auto;
+  border-radius: 16px;
+  background-color: hsl(216, 52%, 20%);
+}
+
 
 .chart__oneDay {
   background: $titlecolor;
