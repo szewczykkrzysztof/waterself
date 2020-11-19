@@ -29,6 +29,8 @@ function generateChart(chartType) {
     var barToRemove = oldChartBar[i];
     // element do usunięcia.węzeł rodzica.usuń_dziecko
     barToRemove.parentNode.removeChild(barToRemove);
+    // alternatywnie można użyć
+    // chartBody.removeChild(barToRemove);
   }
 
   switch (chartType) {
