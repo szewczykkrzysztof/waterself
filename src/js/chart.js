@@ -26,11 +26,15 @@ function generateChart(chartType) {
       console.log(`Wybrałeś ${chartType}`);
       newChart(7);
       // // zamienia pomiedzy przyciskami klasę na active
+      chartWeekButton.classList.add("chart__type--active");
+      chartMonthButton.classList.remove("chart__type--active");
       break;
     case "month":
       console.log(`Wybrałeś ${chartType}`);
       newChart(30);
       // zamienia pomiedzy przyciskami klasę na active
+      chartWeekButton.classList.remove("chart__type--active");
+      chartMonthButton.classList.add("chart__type--active");
       break;
   }
 }
