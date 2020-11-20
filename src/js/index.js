@@ -41,13 +41,13 @@ function entryManipulate(glassValueToAdd) {
   // attach last element from history array
   var lastEntry = savingHistory[savingHistory.length - 1];
 
-  // assign saved record value to counter variable
-  var storageCounter = lastEntry.glassCount;
-
   // check if last entry is saved today
   if (lastEntry.data === today) {
     // remove last array element
     // historyDrinkTable.pop();
+
+    // assign saved record value to counter variable
+    var storageCounter = lastEntry.glassCount;
 
     // check if stored glass value > 0
     if (storageCounter > 0) {
