@@ -29,14 +29,12 @@ if (savingHistory) {
   var lastEntry = savingHistory[savingHistory.length - 1];
   // check if last entry is saved today
   if (lastEntry.data === today) {
-    console.log("W tablicy jest już dzisiejszy wpis");
     // inject stored counter value to html counter
     glassCounter.innerHTML = lastEntry.glassCount;
   }
 } else {
-  // create empty history table
-  var historyDrinkTable = [];
-
+  // create array with today record
+  var historyDrinkTable = [{data: today, "glassCount" : 0}];
   // save table to local storage
   localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
   glassCounter.innerHTML = 0;
@@ -88,13 +86,13 @@ addGlass.addEventListener("click", (e) => {
   entryManipulate(1);
 });
 
-// Substract by 1 glass counter on local storage
+// console.log(storageCounter);
+// // Substract by 1 glass counter on local storage
 // removeGlass.addEventListener("click", (e) => {
 //   if (storageCounter > 0) {
 //     e.preventDefault();
-//     storageCounter--;
-//     glassCounter.innerHTML = storageCounter;
-//     localStorage.setItem(`${today}`, storageCounter);
+//     // execute function with substract value
+//     entryManipulate(-1);
 //   } else {
 //     e.preventDefault();
 //   }
