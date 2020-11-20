@@ -54,19 +54,23 @@ function entryManipulate(glassValueToAdd) {
       // add or substract glass to counter
       storageCounter = storageCounter + glassValueToAdd;
     }
-    // inject glass number value to html element
-    // glassCounter.innerHTML = storageCounter;
   } else {
     // if no entry for today set counter to 0
     storageCounter = 0;
   }
+  // inject glass number value to html element
+  // glassCounter.innerHTML = storageCounter;
+  // console.log(`Aktualna ilość szklanek: ${storageCounter}`);
 }
 
 // Add +1 to glass counter on localstorage
-// addGlass.addEventListener("click", (e) => {
-//   e.preventDefault();
+addGlass.addEventListener("click", (e) => {
+  // prevent from preloading page
+  e.preventDefault();
 
-// })
+  // execute function with input value +1
+  entryManipulate(1);
+});
 
 // Substract by 1 glass counter on local storage
 // removeGlass.addEventListener("click", (e) => {
