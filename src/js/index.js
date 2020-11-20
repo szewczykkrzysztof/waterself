@@ -52,7 +52,7 @@ function entryManipulate(glassValueToAdd) {
     var storageCounter = lastEntry.glassCount;
     console.log(`Wczytane zostało szklanek: ${storageCounter}`);
     // check if stored glass value > 0
-    if (storageCounter > 0) {
+    if (storageCounter => 0) {
       // add or substract glass to counter
       storageCounter = storageCounter + glassValueToAdd;
     }
