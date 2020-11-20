@@ -55,11 +55,10 @@ function entryManipulate(glassValueToAdd) {
     if (storageCounter => 0) {
       // add or substract glass to counter
       storageCounter = storageCounter + glassValueToAdd;
+      // if storage dropped below 0, set counter on 0
+      if (storageCounter < 0) {storageCounter = 0;}
     }
-  } else {
-    // if no entry for today set counter to 0
-    storageCounter = 0;
-  }
+  } 
   // inject glass number value to html element
   glassCounter.innerHTML = storageCounter;
   console.log(`Aktualna ilość szklanek: ${storageCounter}`);
