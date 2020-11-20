@@ -19,19 +19,18 @@ const today = new Date().toISOString().slice(0, 10);
 
 // Load drink history from localstorage
 
-let savingHistory = localStorage.getItem(`glassHistory`);
+let savingHistory = JSON.parse(localStorage.getItem(`glassHistory`));
 
 console.log(`Dzisiaj jest ${today}`);
 
 if (savingHistory) {
-    // glassCounter.innerHTML = storageCounter;
+  // glassCounter.innerHTML = storageCounter;
 } else {
-  
-  // create empty history table 
+  // create empty history table
   var historyDrinkTable = [];
-
+  console.log(historyDrinkTable);
   // save table to local storage
-  localStorage.setItem('glassHistory', historyDrinkTable);
+  localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
   glassCounter.innerHTML = 0;
 }
 
@@ -54,4 +53,3 @@ if (savingHistory) {
 //     e.preventDefault();
 //   }
 // });
-
