@@ -37,7 +37,7 @@ if (savingHistory) {
 
 // function which do operation on last record in history table
 
-function entryManipulate(operation) {
+function entryManipulate(glassValueToAdd) {
   // attach last element from history array
   var lastEntry = savingHistory[savingHistory.length - 1];
 
@@ -46,6 +46,16 @@ function entryManipulate(operation) {
 
   // check if last entry is saved today
   if (lastEntry.data === today) {
+    // remove last array element
+    // historyDrinkTable.pop();
+
+    // check if stored glass value > 0
+    if (storageCounter > 0) {
+      // add or substract glass to counter
+      storageCounter = storageCounter + glassValueToAdd;
+    }
+    // inject glass number value to html element
+    // glassCounter.innerHTML = storageCounter;
   } else {
     // if no entry for today set counter to 0
     storageCounter = 0;
