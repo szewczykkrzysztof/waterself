@@ -25,7 +25,14 @@ let savingHistory = JSON.parse(localStorage.getItem(`glassHistory`));
 console.log(`Dzisiaj jest ${today}`);
 
 if (savingHistory) {
-  // glassCounter.innerHTML = storageCounter;
+  // attach last element from history array
+  var lastEntry = savingHistory[savingHistory.length - 1];
+  // check if last entry is saved today
+  if (lastEntry.data === today) {
+    console.log("W tablicy jest już dzisiejszy wpis");
+    // inject stored counter value to html counter
+    glassCounter.innerHTML = lastEntry.glassCount;
+  }
 } else {
   // create empty history table
   var historyDrinkTable = [];
@@ -39,8 +46,6 @@ if (savingHistory) {
 
 function entryManipulate(glassValueToAdd) {
   console.log(`Wejściowa wartość to ${glassValueToAdd}`);
-  // attach last element from history array
-  var lastEntry = savingHistory[savingHistory.length - 1];
 
   // check if last entry is saved today
   if (lastEntry.data === today) {
@@ -52,13 +57,15 @@ function entryManipulate(glassValueToAdd) {
     var storageCounter = lastEntry.glassCount;
     console.log(`Wczytane zostało szklanek: ${storageCounter}`);
     // check if stored glass value > 0
-    if (storageCounter => 0) {
+    if ((storageCounter) => 0) {
       // add or substract glass to counter
       storageCounter = storageCounter + glassValueToAdd;
       // if storage dropped below 0, set counter on 0
-      if (storageCounter < 0) {storageCounter = 0;}
+      if (storageCounter < 0) {
+        storageCounter = 0;
+      }
     }
-  } 
+  }
   // inject glass number value to html element
   glassCounter.innerHTML = storageCounter;
   console.log(`Aktualna ilość szklanek: ${storageCounter}`);
@@ -67,9 +74,9 @@ function entryManipulate(glassValueToAdd) {
   savingHistory.push({ data: today, glassCount: storageCounter });
   console.log(savingHistory);
   // remove old localstorage key
-  // localStorage.removeItem("glassHistory");
+  localStorage.removeItem("glassHistory");
   // // add updated key to local storage`
-  // localStorage.setItem("glassHistory", JSON.stringify(savingHistory));
+  localStorage.setItem("glassHistory", JSON.stringify(savingHistory));
 }
 
 // Add +1 to glass counter on localstorage
