@@ -38,17 +38,19 @@ if (savingHistory) {
 // function which do operation on last record in history table
 
 function entryManipulate(glassValueToAdd) {
+  console.log(`Wejściowa wartość to ${glassValueToAdd}`);
   // attach last element from history array
   var lastEntry = savingHistory[savingHistory.length - 1];
 
   // check if last entry is saved today
   if (lastEntry.data === today) {
+    console.log("W tablicy jest już dzisiejszy wpis");
     // remove last array element
-    // historyDrinkTable.pop();
-
+    // savingHistory.pop();
+    console.log(savingHistory);
     // assign saved record value to counter variable
     var storageCounter = lastEntry.glassCount;
-
+    console.log(`Wczytane zostało szklanek: ${storageCounter}`);
     // check if stored glass value > 0
     if (storageCounter > 0) {
       // add or substract glass to counter
@@ -63,8 +65,12 @@ function entryManipulate(glassValueToAdd) {
   console.log(`Aktualna ilość szklanek: ${storageCounter}`);
 
   // add today record to array
-  savingHistory.push({"data" :today, "glassCount" : storageCounter});
+  savingHistory.push({ data: today, glassCount: storageCounter });
   console.log(savingHistory);
+  // remove old localstorage key
+  // localStorage.removeItem("glassHistory");
+  // // add updated key to local storage`
+  // localStorage.setItem("glassHistory", JSON.stringify(savingHistory));
 }
 
 // Add +1 to glass counter on localstorage
