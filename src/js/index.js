@@ -61,6 +61,10 @@ function entryManipulate(glassValueToAdd) {
   // inject glass number value to html element
   glassCounter.innerHTML = storageCounter;
   console.log(`Aktualna ilość szklanek: ${storageCounter}`);
+
+  // add today record to array
+  savingHistory.push({"data" :today, "glassCount" : storageCounter});
+  console.log(savingHistory);
 }
 
 // Add +1 to glass counter on localstorage
