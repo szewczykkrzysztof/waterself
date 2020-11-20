@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import "../scss/main.scss";
 
 // uncomment the lines below to enable PWA
@@ -28,19 +29,34 @@ if (savingHistory) {
 } else {
   // create empty history table
   var historyDrinkTable = [];
-  console.log(historyDrinkTable);
+
   // save table to local storage
   localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
   glassCounter.innerHTML = 0;
 }
 
+// function which do operation on last record in history table
+
+function entryManipulate(operation) {
+  // attach last element from history array
+  var lastEntry = savingHistory[savingHistory.length - 1];
+
+  // assign saved record value to counter variable
+  var storageCounter = lastEntry.glassCount;
+
+  // check if last entry is saved today
+  if (lastEntry.data === today) {
+  } else {
+    // if no entry for today set counter to 0
+    storageCounter = 0;
+  }
+}
+
 // Add +1 to glass counter on localstorage
 // addGlass.addEventListener("click", (e) => {
 //   e.preventDefault();
-//   storageCounter++;
-//   glassCounter.innerHTML = storageCounter;
-//   localStorage.setItem(`${today}`, storageCounter);
-// });
+
+// })
 
 // Substract by 1 glass counter on local storage
 // removeGlass.addEventListener("click", (e) => {
