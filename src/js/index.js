@@ -46,7 +46,7 @@ function entryManipulate(glassValueToAdd) {
   if (lastEntry.data === today) {
     console.log("W tablicy jest już dzisiejszy wpis");
     // remove last array element
-    // savingHistory.pop();
+    savingHistory.pop();
     console.log(savingHistory);
     // assign saved record value to counter variable
     var storageCounter = lastEntry.glassCount;
