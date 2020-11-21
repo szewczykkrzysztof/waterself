@@ -51,6 +51,14 @@ function generateChart(chartType) {
   }
 }
 function newChart(daysNumber) {
+  switch (daysNumber) {
+    case 7:
+      var barWidth = 10;
+      break;
+    case 30:
+      var barWidth = 3;
+      break;
+  }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dnii
   for (let i = 0; i <= daysNumber; i++) {
     // generuję dzisiejszą datę
@@ -66,7 +74,7 @@ function newChart(daysNumber) {
     var record = drinkTable.find(({ data }) => data === todayISO);
     console.log(record);
 
-    // funkcja tworząca nowy blok
+    // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
       //   przypinam do zmiennej stworzenie nowego słupka wykresu
       var newBox = document.createElement("div");
@@ -78,6 +86,7 @@ function newChart(daysNumber) {
       var barHeight = entryValue * 10;
       //   dodaje wysokosc słupka do zmiennej css
       newBox.style.setProperty("--barHeight", `${barHeight}%`);
+      newBox.style.setProperty("--chartBarWidth", `${barWidth}%`)
     }
 
     // sprawdzam czy rekord istnieje
