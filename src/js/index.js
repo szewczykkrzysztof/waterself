@@ -45,6 +45,7 @@ if (savingHistory) {
   var historyDrinkTable = [{ data: today, glassCount: 0 }];
   // save table to local storage
   localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
+  var storageCounter = 0;
   glassCounter.innerHTML = 0;
 }
 
