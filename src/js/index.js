@@ -94,12 +94,12 @@ addGlass.addEventListener("click", (e) => {
 });
 
 // // Substract by 1 glass counter on local storage
-// removeGlass.addEventListener("click", (e) => {
-//   if (storageCounter > 0) {
-//     e.preventDefault();
-//     // execute function with substract value
-//     entryManipulate(-1);
-//   } else {
-//     e.preventDefault();
-//   }
-// });
+removeGlass.addEventListener("click", (e) => {
+  if (storageCounter > 0) {
+    e.preventDefault();
+    // execute function with substract value
+    entryManipulate(-1);
+  } else {
+    e.preventDefault();
+  }
+});
