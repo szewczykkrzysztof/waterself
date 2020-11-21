@@ -24,17 +24,25 @@ let savingHistory = JSON.parse(localStorage.getItem(`glassHistory`));
 
 console.log(`Dzisiaj jest ${today}`);
 
+// check if history was stored in localstorage
 if (savingHistory) {
   // attach last element from history array
   var lastEntry = savingHistory[savingHistory.length - 1];
   // check if last entry is saved today
   if (lastEntry.data === today) {
+    var storageCounter = lastEntry.glassCount;
+    // assign saved record value to counter variable
+    if (typeof storageCounter == "number") {
+      console.log(`Z historii wczytano: ${storageCounter} szklanek`);
+    } else {
+      storageCounter = 0;
+    }
     // inject stored counter value to html counter
-    glassCounter.innerHTML = lastEntry.glassCount;
+    glassCounter.innerHTML = storageCounter;
   }
 } else {
   // create array with today record
-  var historyDrinkTable = [{data: today, "glassCount" : 0}];
+  var historyDrinkTable = [{ data: today, glassCount: 0 }];
   // save table to local storage
   localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
   glassCounter.innerHTML = 0;
@@ -51,8 +59,6 @@ function entryManipulate(glassValueToAdd) {
     // remove last array element
     savingHistory.pop();
     console.log(savingHistory);
-    // assign saved record value to counter variable
-    var storageCounter = lastEntry.glassCount;
     console.log(`Wczytane zostało szklanek: ${storageCounter}`);
     // check if stored glass value > 0
     if ((storageCounter) => 0) {
@@ -86,7 +92,6 @@ addGlass.addEventListener("click", (e) => {
   entryManipulate(1);
 });
 
-// console.log(storageCounter);
 // // Substract by 1 glass counter on local storage
 // removeGlass.addEventListener("click", (e) => {
 //   if (storageCounter > 0) {
