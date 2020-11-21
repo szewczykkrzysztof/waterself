@@ -41,10 +41,12 @@ if (savingHistory) {
     glassCounter.innerHTML = storageCounter;
   }
 } else {
+  // create today initial record
+  var lastEntry = { data: today, glassCount: 0 };
   // create array with today record
-  var historyDrinkTable = [{ data: today, glassCount: 0 }];
+  savingHistory = [lastEntry];
   // save table to local storage
-  localStorage.setItem("glassHistory", JSON.stringify(historyDrinkTable));
+  localStorage.setItem("glassHistory", JSON.stringify(savingHistory));
   var storageCounter = 0;
   glassCounter.innerHTML = 0;
 }
