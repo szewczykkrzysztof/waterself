@@ -21,7 +21,7 @@ chartWeekButton.addEventListener("click", (e) => generateChart("week"));
 chartMonthButton.addEventListener("click", (e) => generateChart("month"));
 
 function generateChart(chartType) {
-  // wybranie istniejących słupków
+  // wybranie istniejących słupków i przypisanie ich do zmiennej (tablicy)
   var oldChartBar = document.getElementsByClassName("chart__oneDay");
   // odpalam petle dla każdego elementu z tablicy wybranych elementów
   for (var i = oldChartBar.length - 1; i >= 0; i--) {
@@ -54,9 +54,11 @@ function newChart(daysNumber) {
   switch (daysNumber) {
     case 7:
       var barWidth = 10;
+      var dateDescriptionType = "weekDay";
       break;
     case 30:
       var barWidth = 3;
+      var dateDescriptionType = "shortDate";
       break;
   }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dnii
@@ -74,6 +76,12 @@ function newChart(daysNumber) {
     var record = drinkTable.find(({ data }) => data === todayISO);
     console.log(record);
 
+    function chartDescription() {
+ // podpinam dzien tygonia dla aktualnie przetwarzanej daty
+ var weekDay = today.toString().slice(0, 3);
+    }
+   
+
     // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
       //   przypinam do zmiennej stworzenie nowego słupka wykresu
@@ -86,7 +94,7 @@ function newChart(daysNumber) {
       var barHeight = entryValue * 10;
       //   dodaje wysokosc słupka do zmiennej css
       newBox.style.setProperty("--barHeight", `${barHeight}%`);
-      newBox.style.setProperty("--chartBarWidth", `${barWidth}%`)
+      newBox.style.setProperty("--chartBarWidth", `${barWidth}%`);
     }
 
     // sprawdzam czy rekord istnieje
