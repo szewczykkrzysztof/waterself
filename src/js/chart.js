@@ -74,16 +74,16 @@ function newChart(daysNumber) {
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dnii
   for (let i = 0; i <= daysNumber; i++) {
     // generuję dzisiejszą datę
-    let today = new Date();
+    let dateFromHistory = new Date();
 
     // ustawiam datę z historii
-    today.setDate(today.getDate() - i);
+    dateFromHistory.setDate(dateFromHistory.getDate() - i);
 
     // konweruję datę na format ISO i wycinam samą datę
-    let todayISO = today.toISOString().slice(0, 10);
+    let dateFromHistoryISO = dateFromHistory.toISOString().slice(0, 10);
 
     // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
-    var record = drinkTable.find(({ data }) => data === todayISO);
+    var record = drinkTable.find(({ data }) => data === dateFromHistoryISO);
     console.log(record);
 
     // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
@@ -140,7 +140,7 @@ function newChart(daysNumber) {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
     }
-    weekDayDescription(today);
-    shortDateDescription(today);
+    weekDayDescription(dateFromHistory);
+    shortDateDescription(dateFromHistory);
   }
 }
