@@ -87,7 +87,7 @@ function newChart(daysNumber) {
     console.log(record);
 
     // funkcja dodajaca nowy opis do słupka
-    function barDescription(type) {
+    function weekDayDescription() {
       // podpinam dzien tygonia dla aktualnie przetwarzanej daty
       var weekDay = today.toString().slice(0, 3);
       // przypinam do zmiennej nowy opis słupka wykresu
@@ -134,6 +134,6 @@ function newChart(daysNumber) {
       addGraphBar(recordDate, 0);
     }
 
-    barDescription();
+    weekDayDescription();
   }
 }
