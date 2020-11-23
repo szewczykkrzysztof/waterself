@@ -37,6 +37,29 @@ function clearElement(elementClass) {
   }
 }
 
+// funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
+function weekDayDescription(entry) {
+  // podpinam dzien tygonia dla aktualnie przetwarzanej daty
+  var weekDay = entry.toString().slice(0, 3);
+  // przypinam do zmiennej nowy opis słupka wykresu
+  var newDescription = document.createElement("span");
+  // dodaje nowy dziecko - opis słupka
+  chartDescription.appendChild(newDescription);
+  // tworzę treść ze zmiennej zawierajacej aktualny dzien tygodnia
+  var dayDescription = document.createTextNode(weekDay);
+  // dodaję tresc do storzonego opisu
+  newDescription.appendChild(dayDescription);
+  // dodanie klasy do stworzonego opisu
+  newDescription.setAttribute("class", "chart__weekDay");
+}
+
+// function created short date in dd/mm format
+function shortDateDescription(entry) {
+  var entryDate = new Date(entry);
+  var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth()}`;
+  console.log(dayMonth);
+}
+
 function generateChart(chartType) {
   // czyszczenie starych słupków
   clearElement("chart__oneDay");
@@ -85,29 +108,6 @@ function newChart(daysNumber) {
     // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
     var record = drinkTable.find(({ data }) => data === dateFromHistoryISO);
     console.log(record);
-
-    // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
-    function weekDayDescription(entry) {
-      // podpinam dzien tygonia dla aktualnie przetwarzanej daty
-      var weekDay = entry.toString().slice(0, 3);
-      // przypinam do zmiennej nowy opis słupka wykresu
-      var newDescription = document.createElement("span");
-      // dodaje nowy dziecko - opis słupka
-      chartDescription.appendChild(newDescription);
-      // tworzę treść ze zmiennej zawierajacej aktualny dzien tygodnia
-      var dayDescription = document.createTextNode(weekDay);
-      // dodaję tresc do storzonego opisu
-      newDescription.appendChild(dayDescription);
-      // dodanie klasy do stworzonego opisu
-      newDescription.setAttribute("class", "chart__weekDay");
-    }
-
-    // function created short date in dd/mm format
-    function shortDateDescription(entry) {
-      var entryDate = new Date(entry);
-      var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth()}`;
-      console.log(dayMonth);
-    }
 
     // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
