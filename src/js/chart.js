@@ -94,6 +94,8 @@ function newChart(daysNumber) {
       var dayDescription = document.createTextNode(weekDay);
       // dodaję tresc do storzonego opisu
       newDescription.appendChild(dayDescription);
+      // dodanie klasy do stworzonego opisu
+      newDescription.setAttribute("class", "chart__weekDay");
     }
 
     // funkcja tworząca nowy słupek wykresu
