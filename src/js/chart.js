@@ -10,6 +10,9 @@ console.log(`Zapisanych zostało ${historyLength} wpisów w historii`);
 //   tworze połacznie z klasą wykresu
 var chartBody = document.querySelector(".chart__body");
 
+// tworze połączenie z opisem wykresu
+var chartDescription = document.querySelector(".chart__description");
+
 // tworzę połaczenia z przyciskami do zmiany typu wykresu
 const chartWeekButton = document.querySelector(".chart__week--js");
 const chartMonthButton = document.querySelector(".chart__month--js");
@@ -76,11 +79,19 @@ function newChart(daysNumber) {
     var record = drinkTable.find(({ data }) => data === todayISO);
     console.log(record);
 
-    function chartDescription() {
- // podpinam dzien tygonia dla aktualnie przetwarzanej daty
- var weekDay = today.toString().slice(0, 3);
+    // funkcja dodajaca nowy opis do słupka
+    function barDescription(type) {
+      // podpinam dzien tygonia dla aktualnie przetwarzanej daty
+      var weekDay = today.toString().slice(0, 3);
+      // przypinam do zmiennej nowy opis słupka wykresu
+      var newDescription = document.createElement("span");
+      // dodaje nowy dziecko - opis słupka
+      chartDescription.appendChild(newDescription);
+      // tworzę treść ze zmiennej zawierajacej aktualny dzien tygodnia
+      var dayDescription = document.createTextNode(weekDay);
+      // dodaję tresc do storzonego opisu
+      newDescription.appendChild(dayDescription);
     }
-   
 
     // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
@@ -113,5 +124,7 @@ function newChart(daysNumber) {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
     }
+
+    barDescription();
   }
 }
