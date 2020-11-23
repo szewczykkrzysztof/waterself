@@ -17,13 +17,14 @@ var chartDescription = document.querySelector(".chart__description");
 const chartWeekButton = document.querySelector(".chart__week--js");
 const chartMonthButton = document.querySelector(".chart__month--js");
 
+// wywolanie generowania wykresu tygodniowego pod załadowaniu strony
 generateChart("week");
 
 // podpinam nasłuch na klik do przycisków
 chartWeekButton.addEventListener("click", (e) => generateChart("week"));
 chartMonthButton.addEventListener("click", (e) => generateChart("month"));
 
-// funkcja czyszczaca stary wykres
+// funkcja czyszczaca stare elementy
 function clearElement(elementClass) {
   // tworze tablice z elementami z wybranej klasy
   var elementsToDelete = document.getElementsByClassName(elementClass);
@@ -57,7 +58,16 @@ function weekDayDescription(entry) {
 function shortDateDescription(entry) {
   var entryDate = new Date(entry);
   var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth()}`;
-  console.log(dayMonth);
+  // przypinam do zmiennej nowy opis słupka wykresu
+  var newDescription = document.createElement("span");
+  // dodaje nowy dziecko - opis słupka
+  chartDescription.appendChild(newDescription);
+  // tworzę treść ze zmiennej zawierajacej sktóconą datę
+  var dayDescription = document.createTextNode(dayMonth);
+  // dodaję tresc do storzonego opisu
+  newDescription.appendChild(dayDescription);
+  // dodanie klasy do stworzonego opisu
+  newDescription.setAttribute("class", "chart__weekDay");
 }
 
 function generateChart(chartType) {
@@ -141,6 +151,6 @@ function newChart(daysNumber) {
       addGraphBar(recordDate, 0);
     }
     weekDayDescription(dateFromHistory);
-    shortDateDescription(dateFromHistory);
+    // shortDateDescription(dateFromHistory);
   }
 }
