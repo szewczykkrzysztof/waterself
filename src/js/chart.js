@@ -104,7 +104,7 @@ function newChart(daysNumber) {
       var dateDescriptionType = "shortDate";
       break;
   }
-  // tworzę pętlę wykonywaną dla zdefiniowanej ilości dnii
+  // tworzę pętlę wykonywaną dla zdefiniowanej ilości dni
   for (let i = 0; i <= daysNumber; i++) {
     // generuję dzisiejszą datę
     let dateFromHistory = new Date();
@@ -139,7 +139,7 @@ function newChart(daysNumber) {
       // wyszukuję index znalezionego rekordu
       var position = drinkTable.indexOf(record);
       console.log(position);
-      // wysiagam datę rekordu(wpisu)
+      // wyciągam datę rekordu(wpisu)
       var recordDate = drinkTable[position].data;
       // wyciągam z obiektu ilość zapisanych szklanek
       var recordValue = drinkTable[position].glassCount;
@@ -150,7 +150,15 @@ function newChart(daysNumber) {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
     }
-    weekDayDescription(dateFromHistory);
-    // shortDateDescription(dateFromHistory);
+    // dla wykresu tygodniowego
+    if (daysNumber == 7) {
+      // uruchom generowanie opisu dniami tygodnia
+      weekDayDescription(dateFromHistory);
+    } else {
+      // dla co piatego rekordu (i podzielne przez 5) generuj opis z datą skróconą
+      if (i % 5 == 0) {
+        shortDateDescription(dateFromHistory);
+      }
+    }
   }
 }
