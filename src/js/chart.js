@@ -34,7 +34,7 @@ function clearElement(elementClass) {
     console.log(deletedElement);
     // element do usunięcia.węzeł rodzica.usuń_dziecko
     deletedElement.parentNode.removeChild(deletedElement);
- }
+  }
 }
 
 function generateChart(chartType) {
@@ -102,6 +102,13 @@ function newChart(daysNumber) {
       newDescription.setAttribute("class", "chart__weekDay");
     }
 
+    // function created short date in dd/mm format
+    function shortDateDescription(entry) {
+      var entryDate = new Date(entry);
+      var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth()}`;
+      console.log(dayMonth);
+    }
+
     // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
       //   przypinam do zmiennej stworzenie nowego słupka wykresu
@@ -133,7 +140,7 @@ function newChart(daysNumber) {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
     }
-
     weekDayDescription();
+    shortDateDescription(today);
   }
 }
