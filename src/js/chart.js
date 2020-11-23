@@ -86,10 +86,10 @@ function newChart(daysNumber) {
     var record = drinkTable.find(({ data }) => data === todayISO);
     console.log(record);
 
-    // funkcja dodajaca nowy opis do słupka
-    function weekDayDescription() {
+    // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
+    function weekDayDescription(entry) {
       // podpinam dzien tygonia dla aktualnie przetwarzanej daty
-      var weekDay = today.toString().slice(0, 3);
+      var weekDay = entry.toString().slice(0, 3);
       // przypinam do zmiennej nowy opis słupka wykresu
       var newDescription = document.createElement("span");
       // dodaje nowy dziecko - opis słupka
@@ -140,7 +140,7 @@ function newChart(daysNumber) {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
     }
-    weekDayDescription();
+    weekDayDescription(today);
     shortDateDescription(today);
   }
 }
