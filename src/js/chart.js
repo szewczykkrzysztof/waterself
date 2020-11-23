@@ -31,13 +31,17 @@ function clearElement(elementClass) {
   for (var i = elementsToDelete.length - 1; i >= 0; i--) {
     // przypisuję do zmiennej pojedyńczy element z tablicy
     var deletedElement = elementsToDelete[i];
+    console.log(deletedElement);
     // element do usunięcia.węzeł rodzica.usuń_dziecko
     deletedElement.parentNode.removeChild(deletedElement);
  }
 }
 
 function generateChart(chartType) {
+  // czyszczenie starych słupków
   clearElement("chart__oneDay");
+  // czyszczenie starych opisów
+  clearElement("chart__weekDay");
 
   switch (chartType) {
     case "week":
