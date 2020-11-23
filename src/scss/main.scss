@@ -57,6 +57,16 @@ body {
   height: var(--barHeight);
 }
 
+.chart__description {
+  width: 95vw;
+  display: flex;
+  color: $titlecolor;
+}
+
+.chart__weekDay {
+  font-size: 10px;
+}
+
 .header {
   font-size: 55px;
   padding: 32px;
