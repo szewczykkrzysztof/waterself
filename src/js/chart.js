@@ -109,7 +109,7 @@ function newChart(daysNumber) {
       break;
   }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dni
-  for (let i = 0; i <= daysNumber; i++) {
+  for (let i = 0; i <= daysNumber-1; i++) {
     // generuję dzisiejszą datę
     let dateFromHistory = new Date();
 
