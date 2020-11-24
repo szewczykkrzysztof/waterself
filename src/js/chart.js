@@ -142,11 +142,12 @@ function newChart(daysNumber) {
     if (record) {
       // wyszukuję index znalezionego rekordu
       var position = drinkTable.indexOf(record);
-      console.log(position);
+      console.log(`Index znalezionego rekordu to: ${position}`);
       // wyciągam datę rekordu(wpisu)
       var recordDate = drinkTable[position].data;
       // wyciągam z obiektu ilość zapisanych szklanek
       var recordValue = drinkTable[position].glassCount;
+      console.log(`Data rekordu: ${recordDate}, ilość: ${recordValue}`);
 
       //   wywołuję funkcję dodającą nowy słupek wykresu
       addGraphBar(recordDate, recordValue);
