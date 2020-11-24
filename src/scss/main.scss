@@ -58,11 +58,15 @@ body {
 }
 
 .chart__description {
-  width: 90vw;
   display: flex;
-  margin: 0 auto;
+  padding: 0 24px;
+  margin: 4px auto;
   justify-content: space-between;
   color: $titlecolor;
+  &-month {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 .chart__weekDay {

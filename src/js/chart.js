@@ -83,6 +83,8 @@ function generateChart(chartType) {
       // // zamienia pomiedzy przyciskami klasę na active
       chartWeekButton.classList.add("chart__type--active");
       chartMonthButton.classList.remove("chart__type--active");
+      // usuwa klasę dla opidu miesięcznego
+      chartDescription.classList.remove("chart__description-month");
       break;
     case "month":
       console.log(`Wybrałeś ${chartType}`);
@@ -90,6 +92,8 @@ function generateChart(chartType) {
       // zamienia pomiedzy przyciskami klasę na active
       chartWeekButton.classList.remove("chart__type--active");
       chartMonthButton.classList.add("chart__type--active");
+      // zmienia klasę opisu na miesieczna
+      chartDescription.classList.add("chart__description-month");
       break;
   }
 }
