@@ -132,9 +132,9 @@ function newChart(daysNumber) {
       // dodaje atrybut klasy do stworzonego słupka
       newBox.setAttribute("class", "chart__oneDay");
       //  ustalam wyskość słupka wykresu
-      var barHeight = entryValue * 10;
+      var barHeight = entryValue * 30;
       //   dodaje wysokosc słupka do zmiennej css
-      newBox.style.setProperty("--barHeight", `${barHeight}%`);
+      newBox.style.setProperty("--barHeight", `${barHeight}px`);
       newBox.style.setProperty("--chartBarWidth", `${barWidth}%`);
     }
 
