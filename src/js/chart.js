@@ -20,6 +20,9 @@ const results = document.querySelector(".waterHistory--js");
 const chartWeekButton = document.querySelector(".chart__week--js");
 const chartMonthButton = document.querySelector(".chart__month--js");
 
+// definiuję tablicę z polskimi dniami tygodnia
+const polishWeekDay = ["Pon", "Wto", "Śro", "Czw", "Pią", "Sob", "Nie"];
+
 // wywolanie generowania wykresu tygodniowego pod załadowaniu strony
 generateChart("week");
 generateDrinkHistory(7);
@@ -55,6 +58,7 @@ function clearElement(elementClass) {
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
 function weekDayDescription(entry) {
+  console.log(`Parametr wejściowy do generowania opisu: ${entry}`);
   // podpinam dzien tygonia dla aktualnie przetwarzanej daty
   var weekDay = entry.toString().slice(0, 3);
   // przypinam do zmiennej nowy opis słupka wykresu
