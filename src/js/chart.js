@@ -57,7 +57,8 @@ function weekDayDescription(entry) {
 // function created short date in dd/mm format
 function shortDateDescription(entry) {
   var entryDate = new Date(entry);
-  var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth()}`;
+  // zapisuję do pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
+  var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
   // przypinam do zmiennej nowy opis słupka wykresu
   var newDescription = document.createElement("span");
   // dodaje nowy dziecko - opis słupka
@@ -78,26 +79,28 @@ function generateChart(chartType) {
 
   switch (chartType) {
     case "week":
-      console.log(`Wybrałeś ${chartType}`);
+      // wywołuje generownie nowego wykresu z 7 słupkami
       newChart(7);
       // // zamienia pomiedzy przyciskami klasę na active
       chartWeekButton.classList.add("chart__type--active");
       chartMonthButton.classList.remove("chart__type--active");
-      // usuwa klasę dla opidu miesięcznego
+      // usuwa klasę dla opisu miesięcznego
       chartDescription.classList.remove("chart__description-month");
       break;
     case "month":
-      console.log(`Wybrałeś ${chartType}`);
+      // wywołuje generownie nowego wykresu z 30 słupkami
       newChart(30);
       // zamienia pomiedzy przyciskami klasę na active
       chartWeekButton.classList.remove("chart__type--active");
       chartMonthButton.classList.add("chart__type--active");
-      // zmienia klasę opisu na miesieczna
+      // dodaje klasę dla opisu miesięcznego (grid z 7 kolumnami), aby opisy pokrywały się ze słupkami
       chartDescription.classList.add("chart__description-month");
       break;
   }
 }
+// funkcja rysująca nowy wykres
 function newChart(daysNumber) {
+  // w zależności od ilości słupków ustaw ich szerokość
   switch (daysNumber) {
     case 7:
       var barWidth = 10;
@@ -109,7 +112,7 @@ function newChart(daysNumber) {
       break;
   }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dni
-  for (let i = 0; i <= daysNumber-1; i++) {
+  for (let i = 0; i <= daysNumber - 1; i++) {
     // generuję dzisiejszą datę
     let dateFromHistory = new Date();
 
@@ -118,7 +121,6 @@ function newChart(daysNumber) {
 
     // konweruję datę na format ISO i wycinam samą datę
     let dateFromHistoryISO = dateFromHistory.toISOString().slice(0, 10);
-
     // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
     var record = drinkTable.find(({ data }) => data === dateFromHistoryISO);
     console.log(record);
