@@ -25,8 +25,19 @@ generateChart("week");
 generateDrinkHistory(7);
 
 // podpinam nasłuch na klik do przycisków
-chartWeekButton.addEventListener("click", (e) => generateChart("week"));
-chartMonthButton.addEventListener("click", (e) => generateChart("month"));
+chartWeekButton.addEventListener("click", (e) => {
+  // execute generation new chart
+  generateChart("week");
+  // clear old history element
+  clearElement("waterHistory--record");
+  // generate list of daily drinks for 7 days
+  generateDrinkHistory(7);
+});
+chartMonthButton.addEventListener("click", (e) => {
+  generateChart("month");
+  clearElement("waterHistory--record");
+  generateDrinkHistory(30);
+});
 
 // funkcja czyszczaca stare elementy
 function clearElement(elementClass) {
