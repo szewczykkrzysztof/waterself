@@ -1,0 +1,71 @@
+.chart__header {
+    font-weight: normal;
+    padding: 10px;
+  }
+  
+  .chart__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 90vw;
+    height: 210px;
+    border: 1px solid hsl(216, 52%, 55%);
+    border-radius: 8px;
+    padding: 4px;
+  }
+  
+  .chart__dayLimit {
+    position: absolute;
+    top: 34px;
+    display: inline-block;
+    background-color: hsla(216, 53%, 20%, 0.205);
+    color: black;
+    // opacity: 20%;
+    width: 90vw;
+    height: 180px;
+    font-size: 10px;
+  }
+  
+  .chart__nav {
+    margin: 16px auto;
+    border-radius: 16px;
+    background-color: hsl(216, 52%, 20%);
+  }
+  
+  .chart__type {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 16px;
+    &--active {
+      background-color: $titlecolor;
+      color: hsl(216, 52%, 20%);
+    }
+  }
+  
+  .chart__oneDay {
+    background: $titlecolor;
+    // opacity: 80%;
+    min-width: 10px;
+    width: var(--chartBarWidth);
+    min-height: 2px;
+    height: var(--barHeight);
+  }
+  
+  .chart__description {
+    display: flex;
+    padding: 0 12px;
+    margin: 4px auto;
+    justify-content: space-between;
+    color: $titlecolor;
+    &-month {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      padding: 0;
+    }
+  }
+  
+  .chart__weekDay {
+    font-size: 10px;
+  }
+  
