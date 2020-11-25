@@ -13,6 +13,9 @@ var chartBody = document.querySelector(".chart__body");
 // tworze połączenie z opisem wykresu
 var chartDescription = document.querySelector(".chart__description");
 
+// podpinam klasę pod którą pojawi się historia nawodnienia do zmiennej
+const results = document.querySelector(".waterHistory--js");
+
 // tworzę połaczenia z przyciskami do zmiany typu wykresu
 const chartWeekButton = document.querySelector(".chart__week--js");
 const chartMonthButton = document.querySelector(".chart__month--js");
