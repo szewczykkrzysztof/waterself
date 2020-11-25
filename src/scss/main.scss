@@ -150,8 +150,19 @@ body {
   font-style: normal;
 }
 
-.waterHistory--record:after {
-  content: "🥤";
+.waterHistory {
+ padding: 8px;
+ margin: 16px auto 0;
+ border: 1px solid hsl(216, 52%, 55%);
+ border-radius: 8px;
+}
+
+.waterHistory--record {
+  margin: 8px auto;
+  text-align: center;
+  &:after {
+    content: "🥤";
+  }
 }
 
 .waterHistory--heading {
