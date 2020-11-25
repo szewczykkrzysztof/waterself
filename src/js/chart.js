@@ -26,16 +26,21 @@ generateDrinkHistory(7);
 
 // podpinam nasłuch na klik do przycisków
 chartWeekButton.addEventListener("click", (e) => {
+  // clear old history element
+  clearElement("chart__oneDay");
+  clearElement("chart__weekDay");
+  clearElement("waterHistory--record");
   // execute generation new chart
   generateChart("week");
-  // clear old history element
-  clearElement("waterHistory--record");
   // generate list of daily drinks for 7 days
   generateDrinkHistory(7);
 });
 chartMonthButton.addEventListener("click", (e) => {
-  generateChart("month");
+  // czyszczenie starych opisów
+  clearElement("chart__oneDay");
+  clearElement("chart__weekDay");
   clearElement("waterHistory--record");
+  generateChart("month");
   generateDrinkHistory(30);
 });
 
@@ -57,7 +62,7 @@ function clearElement(elementClass) {
 function weekDayDescription(entry) {
   // definiuję tablicę z polskimi dniami tygodnia
   const polishWeekDay = ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"];
-  // pobieram numer dnia tygodnia i podstawiam go do tablicy z polskimi dniami tygodnia
+  // pobieram numer dnia tygodnia i podstawiam go jako index do tablicy z polskimi dniami tygodnia
   var weekDay = polishWeekDay[entry.getDay()];
   // przypinam do zmiennej nowy opis słupka wykresu
   var newDescription = document.createElement("span");
@@ -88,11 +93,6 @@ function shortDateDescription(entryDate) {
 }
 
 function generateChart(chartType) {
-  // czyszczenie starych słupków
-  clearElement("chart__oneDay");
-  // czyszczenie starych opisów
-  clearElement("chart__weekDay");
-
   switch (chartType) {
     case "week":
       // wywołuje generownie nowego wykresu z 7 słupkami
