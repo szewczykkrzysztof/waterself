@@ -122,7 +122,6 @@ function newChart(daysNumber) {
     let dateFromHistoryISO = dateFromHistory.toISOString().slice(0, 10);
     // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
     var record = drinkTable.find(({ data }) => data === dateFromHistoryISO);
-    console.log(record);
 
     // funkcja tworząca nowy słupek wykresu
     function addGraphBar(entryData, entryValue) {
