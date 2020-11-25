@@ -55,8 +55,7 @@ function weekDayDescription(entry) {
 }
 
 // function created short date in dd/mm format
-function shortDateDescription(entry) {
-  var entryDate = new Date(entry);
+function shortDateDescription(entryDate) {
   // zapisuję do pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
   var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
   // przypinam do zmiennej nowy opis słupka wykresu
