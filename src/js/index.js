@@ -26,11 +26,11 @@ if (savingHistory) {
   // attach last element from history array
   var lastEntry = savingHistory[savingHistory.length - 1];
   console.log(
-    `Ostatni element z historii to ${lastEntry} a liczba szklanek to ${lastEntry.glassCount}`
+    `Ostatni element z historii to ${lastEntry.data} a liczba szklanek to ${lastEntry.glassCount}`
   );
   // check if last entry is saved today
   if (lastEntry.data === today) {
-    console.log(`W tablicy istnieje wpis z dzisiejszego dnia ${lastEntry}`)
+    console.log(`W tablicy istnieje wpis z dzisiejszego dnia ${lastEntry.data}`)
     // assign saved record value to counter variable
     storageCounter = lastEntry.glassCount;
     // check if saved value is a number
@@ -91,7 +91,7 @@ function entryManipulate(glassValueToAdd) {
   if (lastEntry.data === today) {
     // last record is saved in variable, remove last array element to do space on updated record
     savingHistory.pop();
-    console.log(`Dzisiejszy wpis istnieje: ${lastEntry}`);
+    console.log(`Dzisiejszy wpis istnieje: ${lastEntry.data}`);
     // check if stored glass value > 0
     if ((storageCounter) => 0) {
       // add or substract glass to counter
@@ -109,7 +109,7 @@ function entryManipulate(glassValueToAdd) {
 
   // add today record to array
   savingHistory.push({ data: today, glassCount: storageCounter });
-  console.log(`Do wewnętrznej tabeli dodano: ${data}: ${today}, ${glassCount}: ${storageCounter}}`);
+  console.log(`Do wewnętrznej tabeli dodano datę: ${today}, i licznik: ${storageCounter}`);
 
   // remove old localstorage key
   localStorage.removeItem("glassHistory");
