@@ -30,7 +30,9 @@ if (savingHistory) {
   );
   // check if last entry is saved today
   if (lastEntry.data === today) {
-    console.log(`W tablicy istnieje wpis z dzisiejszego dnia ${lastEntry.data}`)
+    console.log(
+      `W tablicy istnieje wpis z dzisiejszego dnia ${lastEntry.data}`
+    );
     // assign saved record value to counter variable
     storageCounter = lastEntry.glassCount;
     // check if saved value is a number
@@ -49,8 +51,7 @@ if (savingHistory) {
   }
   // inject stored counter value to html counter
   glassCounter.innerHTML = storageCounter;
-  console.log("Wyświetliłem zapisany licznik na stronie");
-  console.log(`Aktualna stan wewnętrznego licznika to: ${storageCounter}`);
+  console.log(`Wyświetliłem zapisany licznik (${storageCounter}) na stronie`);
 } else {
   // create today initial record
   var lastEntry = { data: today, glassCount: 0 };
@@ -88,7 +89,7 @@ removeGlass.addEventListener("click", (e) => {
 // function which do operation on last record in history table
 
 function glassManipulate(glassValueToAdd) {
-  // check if last entry is saved today
+  // check if last entry is saved todaym
   if (lastEntry.data === today) {
     // last record is saved in variable, remove last array element to do space on updated record
     savingHistory.pop();
@@ -97,28 +98,44 @@ function glassManipulate(glassValueToAdd) {
     if ((storageCounter) => 0) {
       // add or substract glass to counter
       storageCounter = storageCounter + glassValueToAdd;
-      console.log(`Po dodaniu stan wewnętrznego licznika to: ${storageCounter}`);
+      console.log(
+        `Po dodaniu stan wewnętrznego licznika to: ${storageCounter}`
+      );
       // if storage dropped below 0, set counter on 0
       if (storageCounter < 0) {
         storageCounter = 0;
       }
     }
+  } else {
+    // if there is no record for today
+    storageCounter = 1;
+    console.log(
+      `Dzisiejszego wpisu nie było, aktualny licznik wskazuje: ${storageCounter}`
+    );
   }
-
   // inject glass number value to html element
   glassCounter.innerHTML = storageCounter;
 
+  // update last element from inner variable
+  lastEntry = { data: today, glassCount: storageCounter };
+
   // add today record to array
-  savingHistory.push({ data: today, glassCount: storageCounter });
-  console.log(`Do wewnętrznej tabeli dodano datę: ${today}, i licznik: ${storageCounter}`);
+  savingHistory.push(lastEntry);
+  console.log(
+    `Do wewnętrznej tabeli dodano datę: ${lastEntry.data}, i licznik: ${lastEntry.glassCount}`
+  );
 
   // remove old localstorage key
   localStorage.removeItem("glassHistory");
-  console.log("Usunięto starą tabelę w localstorage")
+  console.log("Usunięto starą tabelę w localstorage");
 
   // // add updated key to local storage`
   localStorage.setItem("glassHistory", JSON.stringify(savingHistory));
-  console.log("Zapisano nową tabelę w localstorage")
+  console.log("Zapisano nową tabelę w localstorage");
 
-  console.log(`Koniec petli, lokalny licznik: ${storageCounter}, lcznik z localstorage ${savingHistory[savingHistory.length-1].glassCount}`);
+  console.log(
+    `Koniec petli, lokalny licznik: ${storageCounter}, lcznik z localstorage ${
+      savingHistory[savingHistory.length - 1].glassCount
+    }`
+  );
 }
