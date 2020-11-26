@@ -1,4 +1,4 @@
-![cover](./src/asset/img/hydrapp.png)
+![cover](https://szewczykkrzysztof.github.io/waterself/hydrapp.png)
 
 # hydrapp 
 
