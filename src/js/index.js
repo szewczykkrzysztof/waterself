@@ -50,6 +50,7 @@ if (savingHistory) {
   // inject stored counter value to html counter
   glassCounter.innerHTML = storageCounter;
   console.log("Wyświetliłem zapisany licznik na stronie");
+  console.log(`Aktualna stan wewnętrznego licznika to: ${storageCounter}`);
 } else {
   // create today initial record
   var lastEntry = { data: today, glassCount: 0 };
@@ -68,7 +69,7 @@ addGlass.addEventListener("click", (e) => {
   e.preventDefault();
 
   // execute function with input value +1
-  entryManipulate(1);
+  glassManipulate(1);
 });
 
 // // Substract by 1 glass counter on local storage
@@ -76,7 +77,7 @@ removeGlass.addEventListener("click", (e) => {
   if (storageCounter > 0) {
     e.preventDefault();
     // execute function with substract value
-    entryManipulate(-1);
+    glassManipulate(-1);
   } else {
     // if glass counter = 0 no reaction (prevent reloading page)
     e.preventDefault();
@@ -86,7 +87,7 @@ removeGlass.addEventListener("click", (e) => {
 
 // function which do operation on last record in history table
 
-function entryManipulate(glassValueToAdd) {
+function glassManipulate(glassValueToAdd) {
   // check if last entry is saved today
   if (lastEntry.data === today) {
     // last record is saved in variable, remove last array element to do space on updated record
