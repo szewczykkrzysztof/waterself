@@ -37,6 +37,10 @@ body {
 }
 
 .glass {
+  &__image {
+    height: 280px;
+    width: 280px;
+  }
   &__addButton {
     @include buttonSize();
     border-radius: 8px;
