@@ -120,11 +120,9 @@ function newChart(daysNumber) {
   switch (daysNumber) {
     case 7:
       var barWidth = 10;
-      var dateDescriptionType = "weekDay";
       break;
     case 30:
       var barWidth = 3;
-      var dateDescriptionType = "shortDate";
       break;
   }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dni
