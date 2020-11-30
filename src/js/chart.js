@@ -59,11 +59,11 @@ function clearElement(elementClass) {
 }
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
-function weekDayDescription(entry) {
+function weekDayDescription(entryDate) {
   // definiuję tablicę z polskimi dniami tygodnia
   const polishWeekDay = ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"];
   // pobieram numer dnia tygodnia i podstawiam go jako index do tablicy z polskimi dniami tygodnia
-  var weekDay = polishWeekDay[entry.getDay()];
+  var weekDay = polishWeekDay[entryDate.getDay()];
   // przypinam do zmiennej nowy opis słupka wykresu
   var newDescription = document.createElement("span");
   // dodaje nowy dziecko - opis słupka
