@@ -1,5 +1,5 @@
 import "../scss/main.scss";
-import {polishWeekDay} from './modules/daysFunctions.js'
+import { polishWeekDay } from "./modules/daysFunctions.js";
 
 // ładuję tablicę z historią z local storage poprzez odkodowanie JSON
 var drinkTable = JSON.parse(localStorage.getItem("glassHistory"));
@@ -73,18 +73,9 @@ function weekDayDescription(entryDate) {
 
 // function created short date in dd/mm format
 function shortDateDescription(entryDate) {
-  // zapisuję do pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
+  // zapisuję do zmiennej pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
   var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
-  // przypinam do zmiennej nowy opis słupka wykresu
-  var newDescription = document.createElement("span");
-  // dodaje nowy dziecko - opis słupka
-  chartDescription.appendChild(newDescription);
-  // tworzę treść ze zmiennej zawierajacej sktóconą datę
-  var dayDescription = document.createTextNode(dayMonth);
-  // dodaję tresc do storzonego opisu
-  newDescription.appendChild(dayDescription);
-  // dodanie klasy do stworzonego opisu
-  newDescription.setAttribute("class", "chart__weekDay");
+  chartDescription.innerHTML += `<span class="chart__weekDay">${dayMonth}</span>`;
 }
 
 function generateChart(chartType) {
