@@ -1,4 +1,5 @@
 import "../scss/main.scss";
+import {polishWeekDay} from './modules/daysFunctions.js'
 
 // ładuję tablicę z historią z local storage poprzez odkodowanie JSON
 var drinkTable = JSON.parse(localStorage.getItem("glassHistory"));
@@ -60,18 +61,12 @@ function clearElement(elementClass) {
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
 function weekDayDescription(entryDate) {
-  // definiuję tablicę z polskimi dniami tygodnia
-  const polishWeekDay = ["Nie", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"];
-  // pobieram numer dnia tygodnia i podstawiam go jako index do tablicy z polskimi dniami tygodnia
-  var weekDay = polishWeekDay[entryDate.getDay()];
   // przypinam do zmiennej nowy opis słupka wykresu
   var newDescription = document.createElement("span");
   // dodaje nowy dziecko - opis słupka
   chartDescription.appendChild(newDescription);
-  // tworzę treść ze zmiennej zawierajacej aktualny dzien tygodnia
-  var dayDescription = document.createTextNode(weekDay);
-  // dodaję tresc do storzonego opisu
-  newDescription.appendChild(dayDescription);
+  // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
+  newDescription.innerHTML = polishWeekDay(entryDate);
   // dodanie klasy do stworzonego opisu
   newDescription.setAttribute("class", "chart__weekDay");
 }
