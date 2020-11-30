@@ -61,14 +61,8 @@ function clearElement(elementClass) {
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
 function weekDayDescription(entryDate) {
-  // przypinam do zmiennej nowy opis słupka wykresu
-  var newDescription = document.createElement("span");
-  // dodaje nowy dziecko - opis słupka
-  chartDescription.appendChild(newDescription);
   // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
-  newDescription.innerHTML = polishWeekDay(entryDate);
-  // dodanie klasy do stworzonego opisu
-  newDescription.setAttribute("class", "chart__weekDay");
+  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(entryDate)}</span>`;
 }
 
 // function created short date in dd/mm format
