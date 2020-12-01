@@ -15,7 +15,7 @@ var chartBody = document.querySelector(".chart__body");
 var chartDescription = document.querySelector(".chart__description");
 
 // podpinam klasę pod którą pojawi się historia nawodnienia do zmiennej
-const results = document.querySelector(".waterHistory--js");
+const waterHistoryList = document.querySelector(".waterHistory--js");
 
 // tworzę połaczenia z przyciskami do zmiany typu wykresu
 const chartWeekButton = document.querySelector(".chart__week--js");
@@ -184,8 +184,8 @@ function generateDrinkHistory(inputLength) {
       //   dodaje zmienną tworzącą tworzącą nowy paragraf
       var newParagraph = document.createElement("p");
 
-      // dodaje nowy paragraf do sekcji results (tworzę jego dziecko)
-      results.appendChild(newParagraph);
+      // dodaje nowy paragraf do sekcji waterHistoryList (tworzę jego dziecko)
+      waterHistoryList.appendChild(newParagraph);
 
       // dodaje atrybut do paragrafu
       newParagraph.setAttribute("class", "waterHistory--record");
