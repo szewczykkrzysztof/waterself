@@ -110,11 +110,12 @@ function newChart(daysNumber) {
       console.log(`Data rekordu: ${recordDate}, ilość: ${recordValue}`);
 
       //   wywołuję funkcję dodającą nowy słupek wykresu
-      addGraphBar(recordDate, recordValue);
+      addGraphBar(recordValue);
+      // wywołuje dodanie nowej linii z dziennym spożyciem
       addParagraph(recordDate, recordValue);
     } else {
       // wywołanie funkcji dodającej słupek dla braku wpisu
-      addGraphBar(recordDate, 0);
+      addGraphBar(0);
       addParagraph(recordDate, 0);
     }
     // dla wykresu tygodniowego
@@ -130,7 +131,7 @@ function newChart(daysNumber) {
   }
 
   // funkcja tworząca nowy słupek wykresu
-  function addGraphBar(entryData, entryValue) {
+  function addGraphBar(entryValue) {
     //   przypinam do zmiennej stworzenie nowego słupka wykresu
     var newBox = document.createElement("div");
     // dodaje nowy słupek do wykresu (tworzę dziecko wykresu)
