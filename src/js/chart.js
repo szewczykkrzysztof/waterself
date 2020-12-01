@@ -51,11 +51,8 @@ function clearElement(elementClass) {
   var elementsToDelete = document.getElementsByClassName(elementClass);
   // tworze pętlę usuwającą po kolei każdy element z tablicy
   for (var i = elementsToDelete.length - 1; i >= 0; i--) {
-    // przypisuję do zmiennej pojedyńczy element z tablicy
-    var deletedElement = elementsToDelete[i];
-    console.log(deletedElement);
-    // element do usunięcia.węzeł rodzica.usuń_dziecko
-    deletedElement.parentNode.removeChild(deletedElement);
+    // element do usunięcia.węzeł rodzica.usuń_dziecko (element z tablicy do usuniecia)
+    elementsToDelete[i].parentNode.removeChild(elementsToDelete[i]);
   }
 }
 
