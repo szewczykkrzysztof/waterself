@@ -23,7 +23,6 @@ const chartMonthButton = document.querySelector(".chart__month--js");
 
 // wywolanie generowania wykresu tygodniowego pod załadowaniu strony
 generateChart("week");
-generateDrinkHistory(7);
 
 // podpinam nasłuch na klik do przycisków
 chartWeekButton.addEventListener("click", (e) => {
@@ -33,8 +32,6 @@ chartWeekButton.addEventListener("click", (e) => {
   clearElement("waterHistory--record");
   // execute generation new chart
   generateChart("week");
-  // generate list of daily drinks for 7 days
-  generateDrinkHistory(7);
 });
 chartMonthButton.addEventListener("click", (e) => {
   // czyszczenie starych opisów
@@ -42,7 +39,6 @@ chartMonthButton.addEventListener("click", (e) => {
   clearElement("chart__weekDay");
   clearElement("waterHistory--record");
   generateChart("month");
-  generateDrinkHistory(30);
 });
 
 // funkcja czyszczaca stare elementy
@@ -145,9 +141,11 @@ function newChart(daysNumber) {
 
       //   wywołuję funkcję dodającą nowy słupek wykresu
       addGraphBar(recordDate, recordValue);
+      addParagraph(recordDate, recordValue);
     } else {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(recordDate, 0);
+      addParagraph(recordDate, 0);
     }
     // dla wykresu tygodniowego
     if (daysNumber == 7) {
@@ -162,45 +160,8 @@ function newChart(daysNumber) {
   }
 }
 
-function generateDrinkHistory(inputLength) {
-  for (let i = 0; i <= inputLength - 1; i++) {
-    // generuję dzisiejszą datę
-    let today = new Date();
-
-    // ustawiam datę z historii
-    today.setDate(today.getDate() - i);
-
-    // konweruję datę na format ISO i wycinam samą datę
-    let todayISO = today.toISOString().slice(0, 10);
-
-    // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
-    var record = drinkTable.find(({ data }) => data === todayISO);
-    console.log(record);
-
-    // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
-    function addParagraph(entryDate, entryValue) {
-      // dodaje nowy paragraf do sekcji waterHistoryList
-      waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${entryValue} </p>`;
-    }
-
-    // sprawdzam czy rekord istnieje
-    if (record) {
-      // wyszukuję index znalezionego rekordu
-      var position = drinkTable.indexOf(record);
-      console.log(position);
-      // wysiagam datę rekordu(wpisu)
-      var recordDate = drinkTable[position].data;
-      // wyciągam z obiektu ilość zapisanych szklanek
-      var recordValue = drinkTable[position].glassCount;
-      // przeliczam szklanki na litry
-      recordValue = recordValue * 0.25;
-      // dodaję symbol litra
-      recordValue = recordValue + "  l";
-      // wywołuję fukcję dodającą nowa linie z danymi wyciagniętymi z pobranego rekordu
-      addParagraph(recordDate, recordValue);
-    } else {
-      // wywołuję dodanie nowej linii z aktualnie tetstowaną datą i wartością 0
-      addParagraph(todayISO, "0");
-    }
-  }
+// tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
+function addParagraph(entryDate, entryValue) {
+  // dodaje nowy paragraf do sekcji waterHistoryList
+  waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${entryValue} </p>`;
 }
