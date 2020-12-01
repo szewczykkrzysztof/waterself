@@ -62,7 +62,9 @@ function clearElement(elementClass) {
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
 function weekDayDescription(entryDate) {
   // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
-  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(entryDate)}</span>`;
+  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(
+    entryDate
+  )}</span>`;
 }
 
 // function created short date in dd/mm format
@@ -178,25 +180,10 @@ function generateDrinkHistory(inputLength) {
     var record = drinkTable.find(({ data }) => data === todayISO);
     console.log(record);
 
-    // tworze funkcję dodającą nową linię w dokumencie html
-
+    // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
     function addParagraph(entryDate, entryValue) {
-      //   dodaje zmienną tworzącą tworzącą nowy paragraf
-      var newParagraph = document.createElement("p");
-
-      // dodaje nowy paragraf do sekcji waterHistoryList (tworzę jego dziecko)
-      waterHistoryList.appendChild(newParagraph);
-
-      // dodaje atrybut do paragrafu
-      newParagraph.setAttribute("class", "waterHistory--record");
-
-      // tworzę zawartość węzła tekstowego z wyciągniętych z obiektu wartości
-      var newParagraphContent = document.createTextNode(
-        `${entryDate} : ${entryValue}`
-      );
-
-      // dodaję do utworzonego paragrafu storzony tekst
-      newParagraph.appendChild(newParagraphContent);
+      // dodaje nowy paragraf do sekcji waterHistoryList
+      waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${entryValue} </p>`;
     }
 
     // sprawdzam czy rekord istnieje
