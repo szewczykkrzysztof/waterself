@@ -149,7 +149,7 @@ function newChart(daysNumber) {
 // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
 function addParagraph(entryDate, entryValue) {
   // dodaje nowy paragraf do sekcji waterHistoryList
-  waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${entryValue} </p>`;
+  waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} :   ${entryValue*0.25} l </p>`;
 }
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
