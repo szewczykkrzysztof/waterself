@@ -52,21 +52,6 @@ function clearElement(elementClass) {
   }
 }
 
-// funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
-function weekDayDescription(entryDate) {
-  // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
-  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(
-    entryDate
-  )}</span>`;
-}
-
-// function created short date in dd/mm format
-function shortDateDescription(entryDate) {
-  // zapisuję do zmiennej pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
-  var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
-  chartDescription.innerHTML += `<span class="chart__weekDay">${dayMonth}</span>`;
-}
-
 function generateChart(chartType) {
   switch (chartType) {
     case "week":
@@ -113,21 +98,6 @@ function newChart(daysNumber) {
     // szukam daty w tablicy i przypisuje element do zmiennej przy użyciu funkcji szczałkowej
     var record = drinkTable.find(({ data }) => data === dateFromHistoryISO);
 
-    // funkcja tworząca nowy słupek wykresu
-    function addGraphBar(entryData, entryValue) {
-      //   przypinam do zmiennej stworzenie nowego słupka wykresu
-      var newBox = document.createElement("div");
-      // dodaje nowy słupek do wykresu (tworzę dziecko wykresu)
-      chartBody.appendChild(newBox);
-      // dodaje atrybut klasy do stworzonego słupka
-      newBox.setAttribute("class", "chart__oneDay");
-      //  ustalam wyskość słupka wykresu
-      var barHeight = entryValue * 30;
-      //   dodaje wysokosc słupka do zmiennej css
-      newBox.style.setProperty("--barHeight", `${barHeight}px`);
-      newBox.style.setProperty("--chartBarWidth", `${barWidth}%`);
-    }
-
     // sprawdzam czy rekord istnieje
     if (record) {
       // wyszukuję index znalezionego rekordu
@@ -158,10 +128,40 @@ function newChart(daysNumber) {
       }
     }
   }
+
+  // funkcja tworząca nowy słupek wykresu
+  function addGraphBar(entryData, entryValue) {
+    //   przypinam do zmiennej stworzenie nowego słupka wykresu
+    var newBox = document.createElement("div");
+    // dodaje nowy słupek do wykresu (tworzę dziecko wykresu)
+    chartBody.appendChild(newBox);
+    // dodaje atrybut klasy do stworzonego słupka
+    newBox.setAttribute("class", "chart__oneDay");
+    //  ustalam wyskość słupka wykresu
+    var barHeight = entryValue * 30;
+    //   dodaje wysokosc słupka do zmiennej css
+    newBox.style.setProperty("--barHeight", `${barHeight}px`);
+    newBox.style.setProperty("--chartBarWidth", `${barWidth}%`);
+  }
 }
 
 // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
 function addParagraph(entryDate, entryValue) {
   // dodaje nowy paragraf do sekcji waterHistoryList
   waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${entryValue} </p>`;
+}
+
+// funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
+function weekDayDescription(entryDate) {
+  // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
+  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(
+    entryDate
+  )}</span>`;
+}
+
+// function created short date in dd/mm format
+function shortDateDescription(entryDate) {
+  // zapisuję do zmiennej pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
+  var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
+  chartDescription.innerHTML += `<span class="chart__weekDay">${dayMonth}</span>`;
 }
