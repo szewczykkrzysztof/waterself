@@ -53,10 +53,8 @@
   }
   
   .chart__description {
-    display: flex;
-    padding: 0 12px;
-    margin: 4px auto;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
     color: $titlecolor;
     &-month {
       display: grid;
@@ -67,5 +65,6 @@
   
   .chart__weekDay {
     font-size: 10px;
+    margin: 0 auto;
   }
   
