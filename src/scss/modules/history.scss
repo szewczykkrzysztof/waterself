@@ -7,6 +7,10 @@
 
 .waterHistory--record {
   margin: 8px auto;
+  td {
+    padding: 4px 8px;
+    // border: 1px solid black;
+  }
   &::before {
     content: "🥤  ";
   }
