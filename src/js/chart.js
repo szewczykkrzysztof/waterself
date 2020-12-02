@@ -30,6 +30,8 @@ chartWeekButton.addEventListener("click", (e) => {
   clearElement("chart__oneDay");
   clearElement("chart__weekDay");
   clearElement("waterHistory--record");
+  // set number of chart bars
+  chartBody.style.setProperty("--chartBarNumber", 7);
   // execute generation new chart
   generateChart("week");
 });
@@ -38,6 +40,7 @@ chartMonthButton.addEventListener("click", (e) => {
   clearElement("chart__oneDay");
   clearElement("chart__weekDay");
   clearElement("waterHistory--record");
+  chartBody.style.setProperty("--chartBarNumber", 30);
   generateChart("month");
 });
 
@@ -76,15 +79,6 @@ function generateChart(chartType) {
 }
 // funkcja rysująca nowy wykres
 function newChart(daysNumber) {
-  // w zależności od ilości słupków ustaw ich szerokość
-  switch (daysNumber) {
-    case 7:
-      var barWidth = 10;
-      break;
-    case 30:
-      var barWidth = 3;
-      break;
-  }
   // tworzę pętlę wykonywaną dla zdefiniowanej ilości dni
   for (let i = 0; i <= daysNumber - 1; i++) {
     // generuję dzisiejszą datę
@@ -142,14 +136,15 @@ function newChart(daysNumber) {
     var barHeight = entryValue * 30;
     //   dodaje wysokosc słupka do zmiennej css
     newBox.style.setProperty("--barHeight", `${barHeight}px`);
-    newBox.style.setProperty("--chartBarWidth", `${barWidth}%`);
   }
 }
 
 // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
 function addParagraph(entryDate, entryValue) {
   // dodaje nowy paragraf do sekcji waterHistoryList
-  waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} :   ${entryValue*0.25} l </p>`;
+  waterHistoryList.innerHTML += `<p class="waterHistory--record">${entryDate} : ${
+    entryValue * 0.25
+  } l </p>`;
 }
 
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
