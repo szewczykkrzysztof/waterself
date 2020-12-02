@@ -59,7 +59,7 @@
     &-month {
       grid-template-columns: repeat(6, 1fr);
       // and for child
-      .chart__weekDay {
+      .chart__barDescription {
         // change align to left
         margin: 0;
       }
@@ -67,7 +67,7 @@
     }
   }
   
-  .chart__weekDay {
+  .chart__barDescription {
     font-size: 10px;
     margin: 0 auto;
     }

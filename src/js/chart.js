@@ -28,7 +28,7 @@ generateChart("week");
 chartWeekButton.addEventListener("click", (e) => {
   // clear old history element
   clearElement("chart__oneDay");
-  clearElement("chart__weekDay");
+  clearElement("chart__barDescription");
   clearElement("waterHistory--record");
   // set number of chart bars
   chartBody.style.setProperty("--chartBarNumber", 7);
@@ -38,7 +38,7 @@ chartWeekButton.addEventListener("click", (e) => {
 chartMonthButton.addEventListener("click", (e) => {
   // czyszczenie starych opisów
   clearElement("chart__oneDay");
-  clearElement("chart__weekDay");
+  clearElement("chart__barDescription");
   clearElement("waterHistory--record");
   chartBody.style.setProperty("--chartBarNumber", 30);
   generateChart("month");
@@ -150,7 +150,7 @@ function addParagraph(entryDate, entryValue) {
 // funkcja dodajaca do słupka opis dnia tygodnia dla zadanej daty
 function weekDayDescription(entryDate) {
   // podstawiam do nowego elementu html wynik z funkcji zwracającej polski dzień tygodnia
-  chartDescription.innerHTML += `<span class="chart__weekDay">${polishWeekDay(
+  chartDescription.innerHTML += `<span class="chart__barDescription">${polishWeekDay(
     entryDate
   )}</span>`;
 }
@@ -159,5 +159,5 @@ function weekDayDescription(entryDate) {
 function shortDateDescription(entryDate) {
   // zapisuję do zmiennej pobrany z obiektu z datą dzień/ miesiąc (miesiące są w obiekcie zapisane w zakresie 0..11, więc należy dodać 1)
   var dayMonth = `${entryDate.getDate()}/${entryDate.getMonth() + 1}`;
-  chartDescription.innerHTML += `<span class="chart__weekDay">${dayMonth}</span>`;
+  chartDescription.innerHTML += `<span class="chart__barDescription">${dayMonth}</span>`;
 }
