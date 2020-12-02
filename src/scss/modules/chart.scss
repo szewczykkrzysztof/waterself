@@ -64,6 +64,6 @@
   
   .chart__weekDay {
     font-size: 10px;
-    margin: 0 auto;
+    margin: var(--chartBarDescriptionMargin);
   }
   
