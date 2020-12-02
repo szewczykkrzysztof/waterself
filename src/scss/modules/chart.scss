@@ -6,7 +6,7 @@
   .chart__body {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(var(--chartBarNumber), 1fr);
     column-gap: 8px;
     align-items: end;
     width: 90vw;
