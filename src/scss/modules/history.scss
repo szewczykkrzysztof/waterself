@@ -7,9 +7,8 @@
 
 .waterHistory--record {
   margin: 8px auto;
-  text-align: center;
-  &:after {
-    content: "🥤";
+  &::before {
+    content: "🥤  ";
   }
 }
 
