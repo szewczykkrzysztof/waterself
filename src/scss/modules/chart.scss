@@ -55,15 +55,20 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     color: $titlecolor;
+    // in case chart for month set 
     &-month {
-      display: grid;
       grid-template-columns: repeat(6, 1fr);
-      padding: 0;
+      // and for child
+      .chart__weekDay {
+        // change align to left
+        margin: 0;
+      }
+  
     }
   }
   
   .chart__weekDay {
     font-size: 10px;
-    margin: var(--chartBarDescriptionMargin);
-  }
+    margin: 0 auto;
+    }
   

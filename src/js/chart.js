@@ -32,8 +32,6 @@ chartWeekButton.addEventListener("click", (e) => {
   clearElement("waterHistory--record");
   // set number of chart bars
   chartBody.style.setProperty("--chartBarNumber", 7);
-  // set description margin to align in center of container
-  chartDescription.style.setProperty('--chartBarDescriptionMargin', '0 auto')
   // execute generation new chart
   generateChart("week");
 });
@@ -43,8 +41,6 @@ chartMonthButton.addEventListener("click", (e) => {
   clearElement("chart__weekDay");
   clearElement("waterHistory--record");
   chartBody.style.setProperty("--chartBarNumber", 30);
-  // set aligning description to left of container
-  chartDescription.style.setProperty('--chartBarDescriptionMargin', '0')
   generateChart("month");
 });
 
