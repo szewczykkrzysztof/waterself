@@ -110,7 +110,6 @@ function newChart(daysNumber) {
     } else {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(0);
-      addRowFromDrinkingHistory(recordDate, 0);
     }
     // dla wykresu tygodniowego
     if (daysNumber == 7) {
