@@ -106,11 +106,11 @@ function newChart(daysNumber) {
       //   wywołuję funkcję dodającą nowy słupek wykresu
       addGraphBar(recordValue);
       // wywołuje dodanie nowej linii z dziennym spożyciem
-      addParagraph(recordDate, recordValue);
+      addRowFromDrinkingHistory(recordDate, recordValue);
     } else {
       // wywołanie funkcji dodającej słupek dla braku wpisu
       addGraphBar(0);
-      addParagraph(recordDate, 0);
+      addRowFromDrinkingHistory(recordDate, 0);
     }
     // dla wykresu tygodniowego
     if (daysNumber == 7) {
@@ -140,7 +140,7 @@ function newChart(daysNumber) {
 }
 
 // tworze funkcję dodającą nową linię z dzienneym spożyciem w sekcji historia html
-function addParagraph(entryDate, entryValue) {
+function addRowFromDrinkingHistory(entryDate, entryValue) {
   // dodaje nowy rząd do tabeli wyników
   waterHistoryList.innerHTML += `<tr class="waterHistory--record"><td>${entryDate}</td> <td>${
     entryValue * 0.25
