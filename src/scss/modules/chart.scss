@@ -5,7 +5,7 @@
   column-gap: 4px;
   align-items: end;
   width: 90vw;
-  height: 210px;
+  height: 230px;
   border: 1px solid hsl(216, 52%, 55%);
   border-radius: 8px;
   padding: 4px;
@@ -13,13 +13,20 @@
 
 .chart__dayLimit {
   position: absolute;
-  top: 34px;
-  display: inline-block;
-  background-color: hsla(216, 53%, 20%, 0.205);
-  color: black;
+  margin: 4px 0;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  background-color: hsla(216, 53%, 20%, 0.15);
   width: 100%;
   height: 180px;
-  font-size: 10px;
+}
+
+.dayLimit__cell {
+  border-top: 1px solid hsla(216, 53%, 20%, 0.3);
+  font-size: xx-large;
+  color: hsla(0, 0%, 100%, 0.2);
+  text-align: center;
+  ;
 }
 
 .chart__nav {
